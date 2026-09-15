@@ -51,33 +51,6 @@ adotada e, quando disponível, o resultado medido.
 
 ## Estrutura do projeto
 
-```text
-.
-├── src/
-│   ├── app/                    # Rotas e layouts (Next.js App Router)
-│   │   ├── globals.css         # Estilos globais
-│   │   ├── favicon.ico
-│   │   ├── layout.tsx          # Layout raiz
-│   │   ├── page.module.css     # Estilos da página inicial
-│   │   └── page.tsx            # Página inicial
-│   ├── components/             # Componentes compartilhados entre rotas
-│   ├── hooks/                  # Custom hooks compartilhados
-│   ├── services/               # Integrações externas / chamadas de API
-│   ├── utils/                  # Funções utilitárias genéricas
-│   └── types/                  # Tipos TypeScript compartilhados
-├── public/                     # Arquivos estáticos acessíveis pela aplicação
-├── README.md
-├── TESTS.md
-├── .nvmrc
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-├── next.config.ts
-├── eslint.config.mjs
-├── .gitignore
-└── LICENSE
-```
-
 As pastas `components/`, `hooks/`, `services/`, `utils/` e `types/` só devem ser
 criadas quando houver código que pertença a elas. **Não criar pastas vazias.**
 
@@ -192,26 +165,26 @@ atualmente.
 
 ## Padrões de código
 
-## Padrões de código
-
 > **Nota:** Este padrão foi aplicado ao projeto atual como prova de conceito. Como o `page.tsx` é boilerplate do `create-next-app` e será removido pela Issue #6, nenhum componente foi extraído nesta issue para evitar conflito. A formatação (Prettier) foi aplicada a todo o código.
 
 ### Colocation: onde colocar cada componente
 
-- Componente usado em **apenas uma rota** → fica em `app/<rota>/_components/`.
-- Componente usado em **várias rotas** → fica em `src/components/`.
+Para pagina, Exemplo; 
 
-Pastas com prefixo `_` (como `_components/`) **não viram URL** — ficam fora do
-roteamento do Next.js.
-
-**Exemplo:**
-
-```text
+```
 app/
-└── sobre/
-    ├── page.tsx
-    └── _components/
-        └── sobre-hero.tsx
+  soujunior/
+    page.tsx
+    page.module.css
+```
+
+Para  componente, Exemplo; 
+
+```
+components/
+  Button/
+    Button.tsx
+    Button.module.css
 ```
 
 ### Nomenclatura
@@ -370,14 +343,6 @@ A hospedagem prevista no escopo é a [Vercel](https://vercel.com/), utilizando o
 preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
 automático gerado pela Vercel; um domínio próprio poderá ser configurado
 posteriormente.
-
-## Referências
-
-As decisões de estrutura e padronização foram baseadas em:
-
-- [Next.js — Project Structure](https://nextjs.org/docs/app/getting-started/project-structure);
-- [Bulletproof React](https://github.com/alan2207/bulletproof-react);
-- [Next Colocation Template](https://github.com/arhamkhnz/next-colocation-template).
 
 ## Licença
 
