@@ -16,6 +16,30 @@ A estrutura atual foi iniciada com Next.js e utiliza o App Router do framework p
 - direcionar os usuários para a plataforma oficial do Apoia.se;
 - preparar a base para uma landing page responsiva e pronta para pré-lançamento.
 
+## Escopo funcional
+
+A landing page deve comunicar o propósito da iniciativa rapidamente, gerar
+confiança e incentivar a doação. A estrutura prevista no escopo inclui:
+
+- hero com mensagem de impacto e CTA principal **"Doar agora"**;
+- seção sobre o problema do acesso de jovens à tecnologia;
+- explicação de como a iniciativa transforma a doação em impacto;
+- prova social com números, depoimentos e parceiros;
+- explicação tangível de como a doação é utilizada;
+- rodapé institucional com CNPJ, contatos e redes sociais.
+
+O CTA principal deve aparecer no hero e ser repetido ao longo da página. Para
+visitantes que ainda não estão prontos para doar, também está previsto um CTA
+secundário, como **"Conhecer o programa"** ou **"Receber novidades"**.
+
+## Métrica de sucesso [ATUALIZAR PÓS-DESENVOLVIMENTO]
+
+A métrica principal do projeto é a taxa de conversão de visitante em doador.
+Visualizações e acessos são métricas auxiliares e não substituem a conversão
+real. A meta numérica de novos doadores por mês ainda deve ser definida com o
+time responsável antes do lançamento. Após a definição, registrar aqui a meta
+adotada e, quando disponível, o resultado medido.
+
 ## Tecnologias e stack
 
 - [Next.js](https://nextjs.org/) `16.3.5`, com App Router;
@@ -176,7 +200,7 @@ atualmente.
 5. Abra um pull request descrevendo o problema, a solução e os testes
    realizados.
 
-## Testes e QA
+## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
 
 O roteiro de testes manuais e checklist de qualidade está em
 [TESTS.md](./TESTS.md). Ele inclui:
@@ -193,14 +217,31 @@ npm run lint
 ```
 
 Não existe uma meta de cobertura automatizada definida para o projeto.
+Após a execução dos testes, atualizar esta seção com o status dos cenários
+manuais e os resultados relevantes de acessibilidade, performance e conversão.
 
-## Deploy
+## Critérios de aceite do escopo [ATUALIZAR PÓS-DESENVOLVIMENTO]
 
-Não há uma configuração de deploy versionada neste repositório no momento.
-Para publicar a aplicação, gere o build com `npm run build` e execute
-`npm run start` em um ambiente compatível com Node.js 20.9.0 ou superior dentro
-da série 20.x. A plataforma e o fluxo de publicação devem ser documentados aqui
-quando forem definidos.
+A página será considerada pronta quando:
+
+- o visitante entender o propósito da iniciativa em até 5 segundos no hero;
+- o CTA de doação estiver visível sem exigir a rolagem completa da página;
+- o redirecionamento para a página da SouJunior no Apoia.se funcionar;
+- o carregamento ficar abaixo de 3 segundos em uma conexão 4G;
+- o tracking de conversão estiver ativo e testado antes do lançamento.
+
+O tracking deve medir a conversão de visitante em doador. A ferramenta e os
+identificadores utilizados devem ser documentados quando forem definidos.
+Após a validação, registrar aqui o status de cada critério e a data da
+verificação.
+
+## Deploy [ATUALIZAR PÓS-DESENVOLVIMENTO]
+
+A hospedagem prevista no escopo é a [Vercel](https://vercel.com/), utilizando o
+preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
+automático gerado pela Vercel; um domínio próprio poderá ser configurado
+posteriormente.
+
 
 ## Licença
 
