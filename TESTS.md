@@ -1,6 +1,8 @@
 # Planilha de Testes Manuais & Checklist de QA
 
-**Projeto:** Landing Page Apoia.se — SouJunior  
+=======
+**Projeto:** Landing Page Apoia.se — SouJunior / Simone Blasse  
+>>>>>>> Stashed changes
 **Versão:** 1.0 (Planejamento de Pré-Lançamento)[cite: 1]  
 **Status do Projeto:** Aguardando ambiente de Staging / Preview  
 
