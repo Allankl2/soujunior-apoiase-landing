@@ -16,13 +16,13 @@ A estrutura atual foi iniciada com Next.js e utiliza o App Router do framework p
 - direcionar os usuários para a plataforma oficial do Apoia.se;
 - preparar a base para uma landing page responsiva e pronta para pré-lançamento.
 
-## Stack
+## Tecnologias e stack
 
-- Next.js 16
-- React 19
-- TypeScript
-- CSS Modules
-- ESLint
+- [Next.js](https://nextjs.org/) `16.3.5`, com App Router;
+- [React](https://react.dev/) `19.2.8`;
+- TypeScript;
+- CSS Modules;
+- ESLint 9.
 
 ## Estrutura do projeto
 
@@ -31,10 +31,11 @@ A estrutura atual foi iniciada com Next.js e utiliza o App Router do framework p
 ├── src/
 │   └── app/
 │       ├── globals.css
+│       ├── favicon.ico
 │       ├── layout.tsx
 │       ├── page.module.css
 │       └── page.tsx
-├── public/
+├── public/              # arquivos estáticos acessíveis pela aplicação
 ├── README.md
 ├── TESTS.md
 ├── .nvmrc
@@ -48,7 +49,7 @@ A estrutura atual foi iniciada com Next.js e utiliza o App Router do framework p
 └── AGENTS.md
 ```
 
-## Requisitos
+## Pré-requisitos
 
 - Node.js 20.9.0 ou superior dentro da série 20.x
 - npm 10 ou superior
@@ -74,7 +75,7 @@ O primeiro comando deve indicar uma versão `20.9.0` ou superior dentro da séri
 `20.x`, e o segundo, uma versão
 `10.x` ou superior.
 
-## Como executar localmente
+## Como rodar o projeto
 
 ### 1. Clonar o repositório
 
@@ -95,7 +96,13 @@ reprodutíveis. Execute:
 npm install
 ```
 
-### 3. Iniciar o modo de desenvolvimento
+### 3. Variáveis de ambiente
+
+O projeto não utiliza variáveis de ambiente neste momento. Caso novas
+integrações sejam adicionadas, documente aqui o nome e a finalidade de cada
+variável necessária, sem incluir valores sensíveis no repositório.
+
+### 4. Iniciar o modo de desenvolvimento
 
 ```bash
 npm run dev
@@ -104,7 +111,7 @@ npm run dev
 Após iniciar o projeto, abra [http://localhost:3000](http://localhost:3000) no
 navegador. Para encerrar o servidor, pressione `Ctrl+C`.
 
-### 4. Validar o projeto
+### 5. Validar o projeto
 
 Execute o lint para verificar problemas de qualidade:
 
@@ -112,7 +119,7 @@ Execute o lint para verificar problemas de qualidade:
 npm run lint
 ```
 
-### 5. Gerar e executar a versão de produção
+### 6. Gerar e executar a versão de produção
 
 Gere o bundle otimizado e, depois, inicie o servidor de produção:
 
@@ -128,24 +135,72 @@ versão de produção.
 
 ## Scripts disponíveis
 
-```bash
-npm run dev    # inicia o ambiente de desenvolvimento
-npm run build  # gera a versão de produção
-npm run start  # inicia a aplicação em produção
-npm run lint   # executa a validação com ESLint
-```
+| Comando | Finalidade |
+| --- | --- |
+| `npm run dev` | inicia o servidor de desenvolvimento; |
+| `npm run build` | gera o bundle otimizado para produção; |
+| `npm run start` | inicia a aplicação usando o build de produção; |
+| `npm run lint` | executa o ESLint para verificar problemas no código. |
 
-## Documentação de QA
+Não há um script automatizado de testes ou cobertura configurado no `package.json`
+atualmente.
 
-O roteiro de testes manuais e checklist de qualidade do projeto está em [TESTS.md](./TESTS.md).
+## Estrutura e responsabilidades
 
-Esse documento inclui:
+- `src/app/layout.tsx`: layout raiz e metadados compartilhados;
+- `src/app/page.tsx`: página principal da landing page;
+- `src/app/page.module.css`: estilos específicos da página principal;
+- `src/app/globals.css`: estilos globais;
+- `public/`: imagens e demais arquivos estáticos;
+- `next.config.ts`: configuração do Next.js;
+- `TESTS.md`: roteiro de testes manuais e checklist de QA.
+
+## Padrões de código
+
+- Utilize TypeScript e mantenha a tipagem explícita nas interfaces públicas.
+- Prefira componentes e funções com nomes em `PascalCase` e variáveis/funções em
+  `camelCase`.
+- Mantenha estilos específicos em CSS Modules (`*.module.css`) e estilos
+  globais em `globals.css`.
+- Organize imports no início do arquivo e remova imports não utilizados.
+- Execute `npm run lint` antes de abrir um pull request.
+
+## Contribuição
+
+1. Crie uma branch descritiva a partir da `main`, por exemplo:
+   `feat/nova-secao` ou `fix/ajuste-responsividade`.
+2. Faça alterações pequenas e focadas.
+3. Use mensagens de commit no padrão Conventional Commits, como
+   `feat: adiciona secao de impacto` ou `docs: atualiza instrucoes`.
+4. Execute `npm run lint` e, quando aplicável, valide os cenários manuais.
+5. Abra um pull request descrevendo o problema, a solução e os testes
+   realizados.
+
+## Testes e QA
+
+O roteiro de testes manuais e checklist de qualidade está em
+[TESTS.md](./TESTS.md). Ele inclui:
 
 - testes de responsividade e UX/UI;
 - testes funcionais e regras de negócio;
 - testes de acessibilidade e performance;
 - cenários para validar CTA, links e comportamento mobile.
 
+Para a validação automatizada disponível, execute:
+
+```bash
+npm run lint
+```
+
+Não existe uma meta de cobertura automatizada definida para o projeto.
+
+## Deploy
+
+Não há uma configuração de deploy versionada neste repositório no momento.
+Para publicar a aplicação, gere o build com `npm run build` e execute
+`npm run start` em um ambiente compatível com Node.js 20.9.0 ou superior dentro
+da série 20.x. A plataforma e o fluxo de publicação devem ser documentados aqui
+quando forem definidos.
 
 ## Licença
 
