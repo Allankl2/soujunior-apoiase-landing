@@ -46,20 +46,26 @@ adotada e, quando disponível, o resultado medido.
 - [React](https://react.dev/) `19.2.8`;
 - TypeScript;
 - CSS Modules;
-- ESLint 9.
+- ESLint 9;
+- [Prettier](https://prettier.io/) para formatação automática de código.
 
 ## Estrutura do projeto
 
 ```text
 .
 ├── src/
-│   └── app/
-│       ├── globals.css
-│       ├── favicon.ico
-│       ├── layout.tsx
-│       ├── page.module.css
-│       └── page.tsx
-├── public/              # arquivos estáticos acessíveis pela aplicação
+│   ├── app/                    # Rotas e layouts (Next.js App Router)
+│   │   ├── globals.css         # Estilos globais
+│   │   ├── favicon.ico
+│   │   ├── layout.tsx          # Layout raiz
+│   │   ├── page.module.css     # Estilos da página inicial
+│   │   └── page.tsx            # Página inicial
+│   ├── components/             # Componentes compartilhados entre rotas
+│   ├── hooks/                  # Custom hooks compartilhados
+│   ├── services/               # Integrações externas / chamadas de API
+│   ├── utils/                  # Funções utilitárias genéricas
+│   └── types/                  # Tipos TypeScript compartilhados
+├── public/                     # Arquivos estáticos acessíveis pela aplicação
 ├── README.md
 ├── TESTS.md
 ├── .nvmrc
@@ -69,9 +75,11 @@ adotada e, quando disponível, o resultado medido.
 ├── next.config.ts
 ├── eslint.config.mjs
 ├── .gitignore
-├── LICENSE
-└── AGENTS.md
+└── LICENSE
 ```
+
+As pastas `components/`, `hooks/`, `services/`, `utils/` e `types/` só devem ser
+criadas quando houver código que pertença a elas. **Não criar pastas vazias.**
 
 ## Pré-requisitos
 
@@ -96,8 +104,7 @@ npm --version
 ```
 
 O primeiro comando deve indicar uma versão `20.9.0` ou superior dentro da série
-`20.x`, e o segundo, uma versão
-`10.x` ou superior.
+`20.x`, e o segundo, uma versão `10.x` ou superior.
 
 ## Como rodar o projeto
 
@@ -137,10 +144,11 @@ navegador. Para encerrar o servidor, pressione `Ctrl+C`.
 
 ### 5. Validar o projeto
 
-Execute o lint para verificar problemas de qualidade:
+Execute o lint e verifique se o código está formatado:
 
 ```bash
 npm run lint
+npm run format:check
 ```
 
 ### 6. Gerar e executar a versão de produção
@@ -159,12 +167,14 @@ versão de produção.
 
 ## Scripts disponíveis
 
-| Comando | Finalidade |
-| --- | --- |
-| `npm run dev` | inicia o servidor de desenvolvimento; |
-| `npm run build` | gera o bundle otimizado para produção; |
-| `npm run start` | inicia a aplicação usando o build de produção; |
-| `npm run lint` | executa o ESLint para verificar problemas no código. |
+| Comando                | Finalidade                                                 |
+| ---------------------- | ---------------------------------------------------------- |
+| `npm run dev`          | inicia o servidor de desenvolvimento;                      |
+| `npm run build`        | gera o bundle otimizado para produção;                     |
+| `npm run start`        | inicia a aplicação usando o build de produção;             |
+| `npm run lint`         | executa o ESLint para verificar problemas no código;       |
+| `npm run format`       | formata o código com Prettier, reescrevendo arquivos;      |
+| `npm run format:check` | verifica se o código está formatado, sem alterar arquivos. |
 
 Não há um script automatizado de testes ou cobertura configurado no `package.json`
 atualmente.
@@ -175,19 +185,125 @@ atualmente.
 - `src/app/page.tsx`: página principal da landing page;
 - `src/app/page.module.css`: estilos específicos da página principal;
 - `src/app/globals.css`: estilos globais;
+- `src/components/`: componentes compartilhados entre rotas;
 - `public/`: imagens e demais arquivos estáticos;
 - `next.config.ts`: configuração do Next.js;
 - `TESTS.md`: roteiro de testes manuais e checklist de QA.
 
 ## Padrões de código
 
-- Utilize TypeScript e mantenha a tipagem explícita nas interfaces públicas.
-- Prefira componentes e funções com nomes em `PascalCase` e variáveis/funções em
-  `camelCase`.
-- Mantenha estilos específicos em CSS Modules (`*.module.css`) e estilos
-  globais em `globals.css`.
-- Organize imports no início do arquivo e remova imports não utilizados.
-- Execute `npm run lint` antes de abrir um pull request.
+## Padrões de código
+
+> **Nota:** Este padrão foi aplicado ao projeto atual como prova de conceito. Como o `page.tsx` é boilerplate do `create-next-app` e será removido pela Issue #6, nenhum componente foi extraído nesta issue para evitar conflito. A formatação (Prettier) foi aplicada a todo o código.
+
+### Colocation: onde colocar cada componente
+
+- Componente usado em **apenas uma rota** → fica em `app/<rota>/_components/`.
+- Componente usado em **várias rotas** → fica em `src/components/`.
+
+Pastas com prefixo `_` (como `_components/`) **não viram URL** — ficam fora do
+roteamento do Next.js.
+
+**Exemplo:**
+
+```text
+app/
+└── sobre/
+    ├── page.tsx
+    └── _components/
+        └── sobre-hero.tsx
+```
+
+### Nomenclatura
+
+| Tipo                  | Convenção    | Exemplo                               |
+| --------------------- | ------------ | ------------------------------------- |
+| Arquivos e diretórios | `kebab-case` | `user-card.tsx`, `format-currency.ts` |
+| Componentes React     | `PascalCase` | `export function DonationForm() {}`   |
+| Funções e variáveis   | `camelCase`  | `const userName = "Michael"`          |
+| Constantes            | `camelCase`  | `const maxDonationAmount = 1000`      |
+| Tipos e interfaces    | `PascalCase` | `type Donation = { amount: number }`  |
+
+**Exemplo real:**
+
+```tsx
+// Arquivo: donation-card.tsx
+export function DonationCard() {
+  return <article>...</article>;
+}
+```
+
+> Arquivo em `kebab-case`, componente em `PascalCase`.
+
+Evite nomes como `UserCard.tsx`, `user_card.tsx` ou `userCard.tsx`.
+
+### Imports
+
+Ordem consistente:
+
+1. Módulos nativos (`react`, `next`)
+2. Bibliotecas externas
+3. Imports internos com `@/`
+4. Imports relativos
+5. Estilos
+
+**Exemplo:**
+
+```tsx
+import { useState } from "react";
+import Image from "next/image";
+
+import { Header } from "@/components/header";
+import { formatCurrency } from "@/utils/format-currency";
+
+import styles from "./page.module.css";
+```
+
+**Sempre use o alias `@/`** em vez de caminhos relativos longos
+(`../../../components/header`). Ele está configurado em `tsconfig.json`:
+
+```json
+"paths": { "@/*": ["./src/*"] }
+```
+
+### Estilização
+
+O projeto usa **CSS Modules**:
+
+- Cada componente tem seu próprio `*.module.css` ao lado;
+- Classes em `camelCase`: `.header`, `.navigationItem`;
+- `globals.css` contém apenas estilos globais (reset, variáveis, `body`).
+
+## Boas práticas
+
+Princípios gerais que orientam o desenvolvimento do projeto:
+
+- **Evitar duplicação.** Se o mesmo código aparece em dois lugares, extraia para um utilitário ou componente compartilhado.
+- **Evitar componentes gigantes.** Se um componente passa de ~150 linhas ou acumula responsabilidades demais, divida em partes menores.
+- **Evitar abstrações prematuras.** Só crie um componente, hook ou utilitário quando houver **necessidade real** — não porque "pode ser útil algum dia".
+- **Reutilizar quando houver necessidade real.** Componentes compartilhados ficam em `src/components/`. Componentes específicos de uma rota ficam próximos dela em `_components/`.
+- **Manter responsabilidades claras.** Cada arquivo deve ter um propósito único e bem definido.
+- **Utilizar TypeScript adequadamente.** Prefira tipos explícitos nas interfaces públicas. Evite `any` sem justificativa.
+- **Preferir imports absolutos com `@/`.** Evita caminhos relativos longos e facilita mover arquivos de lugar.
+
+## Formatação de código
+
+O projeto usa [Prettier](https://prettier.io/) para padronizar a formatação.
+
+Antes de abrir um pull request, execute:
+
+```bash
+npm run format
+```
+
+Para verificar sem alterar arquivos:
+
+```bash
+npm run format:check
+```
+
+O Prettier ignora automaticamente as pastas listadas em `.prettierignore`
+(`node_modules`, `.next`, `out`, `build`, `coverage`).
 
 ## Contribuição
 
@@ -196,9 +312,22 @@ atualmente.
 2. Faça alterações pequenas e focadas.
 3. Use mensagens de commit no padrão Conventional Commits, como
    `feat: adiciona secao de impacto` ou `docs: atualiza instrucoes`.
-4. Execute `npm run lint` e, quando aplicável, valide os cenários manuais.
+4. Execute `npm run lint` e `npm run format:check` antes de abrir o PR.
 5. Abra um pull request descrevendo o problema, a solução e os testes
    realizados.
+
+## Atenção — Next.js 16
+
+O projeto usa Next.js 16.3.5. Há mudanças importantes em relação às versões
+anteriores:
+
+- `params`, `searchParams`, `cookies()` e `headers()` agora são **assíncronos**.
+  Sempre use `await`;
+- `middleware.ts` foi **depreciado** em favor de `proxy.ts`;
+- Rotas paralelas exigem `default.tsx` explícito.
+
+**Não é necessário migrar nada agora.** O time só precisa estar ciente dessas
+mudanças ao escrever código novo.
 
 ## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
 
@@ -242,6 +371,13 @@ preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
 automático gerado pela Vercel; um domínio próprio poderá ser configurado
 posteriormente.
 
+## Referências
+
+As decisões de estrutura e padronização foram baseadas em:
+
+- [Next.js — Project Structure](https://nextjs.org/docs/app/getting-started/project-structure);
+- [Bulletproof React](https://github.com/alan2207/bulletproof-react);
+- [Next Colocation Template](https://github.com/arhamkhnz/next-colocation-template).
 
 ## Licença
 
