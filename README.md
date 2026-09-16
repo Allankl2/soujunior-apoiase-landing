@@ -413,10 +413,6 @@ preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
 automático gerado pela Vercel; um domínio próprio poderá ser configurado
 posteriormente.
 
-## Licença
-
-Este projeto está licenciado sob a [MIT License](./LICENSE).
-
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
 Este repositório contém o planejamento, a documentação e a execução do plano de testes de QA para a **Landing Page do SouJunior APOIA.se**.
