@@ -51,8 +51,68 @@ adotada e, quando disponível, o resultado medido.
 
 ## Estrutura do projeto
 
-As pastas `components/`, `hooks/`, `services/`, `utils/` e `types/` só devem ser
-criadas quando houver código que pertença a elas. **Não criar pastas vazias.**
+O projeto utiliza o **App Router** do Next.js com **colocation**: cada rota guarda seus próprios componentes em uma pasta privada `_components/`. Componentes verdadeiramente compartilhados entre rotas ficam em `src/components/`.
+
+As pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver
+código que pertença a elas. **Não criar pastas vazias.**
+
+```
+src/
+├── app/                              # Rotas do Next.js (App Router)
+│   ├── layout.tsx                    # Layout raiz
+│   ├── globals.css                   # Estilos globais
+│   └── soujunior/                    # Rota: /soujunior
+│       ├── page.tsx                  # Página da landing
+│       └── _components/              # Componentes EXCLUSIVOS da landing
+│           ├── header/
+│           │   └── header.tsx
+│           ├── hero-section/
+│           │   └── hero-section.tsx
+│           ├── about-section/
+│           │   └── about-section.tsx
+│           └── ... (demais seções)
+│
+├── components/                       # COMPONENTES GLOBAIS REUTILIZÁVEIS
+│   └── ui/                           # Elementos atômicos (Design System)
+│       ├── button/
+│       │   └── button.tsx
+│       ├── input/
+│       │   └── input.tsx
+│       └── modal/
+│           └── modal.tsx
+│
+├── lib/                              # Funções utilitárias, clientes de API, configs
+│   ├── format-currency.ts
+│   └── api-client.ts
+│
+└── types/                            # Tipos TypeScript compartilhados
+    └── donation.ts
+```
+
+**Regra de ouro:** as pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver código real que pertença a elas. **Não criar pastas vazias.**
+
+### Responsabilidade de cada diretório
+
+| Diretório                     | Responsabilidade                                     |
+| ----------------------------- | ---------------------------------------------------- |
+| `src/app/`                    | Rotas, layouts e páginas do Next.js (App Router)     |
+| `src/app/<rota>/_components/` | Componentes **específicos** de uma rota (colocation) |
+| `src/components/`             | Componentes **globais** reutilizáveis entre rotas    |
+| `src/components/ui/`          | Elementos atômicos de UI (botões, inputs, modais)    |
+| `src/lib/`                    | Funções utilitárias, clientes de API, configs        |
+| `src/types/`                  | Tipos TypeScript compartilhados entre features       |
+| `public/`                     | Arquivos estáticos (imagens, favicons, fontes)       |
+
+### Quando usar cada pasta
+
+- **Específico da página** → `src/app/<rota>/_components/`
+  Exemplo: uma `HeroSection` que só existe na landing page.
+- **Reutilizável em várias rotas** → `src/components/`
+  Exemplo: um `Button` que aparece em várias páginas.
+- **Utilitário puro** → `src/lib/`
+  Exemplo: `formatCurrency()`, `fetchDonations()`.
+
+> 💡 **Por que `_components` tem underscore?** É uma convenção oficial do Next.js (private folders). Qualquer pasta dentro de `app/` vira rota pública — a menos que comece com `_`. Isso evita URLs indesejadas como `/soujunior/_components/header`.
 
 ## Pré-requisitos
 
@@ -112,7 +172,7 @@ variável necessária, sem incluir valores sensíveis no repositório.
 npm run dev
 ```
 
-Após iniciar o projeto, abra [http://localhost:3000](http://localhost:3000) no
+Após iniciar o projeto, abra [http://localhost:3000/soujunior](http://localhost:3000/soujunior) no
 navegador. Para encerrar o servidor, pressione `Ctrl+C`.
 
 ### 5. Validar o projeto
@@ -134,7 +194,7 @@ npm run start
 ```
 
 A aplicação ficará disponível em
-[http://localhost:3000](http://localhost:3000). O comando `npm run build` deve
+[http://localhost:3000/soujunior](http://localhost:3000/soujunior). O comando `npm run build` deve
 ser executado novamente sempre que o código for alterado antes de iniciar a
 versão de produção.
 
@@ -155,37 +215,46 @@ atualmente.
 ## Estrutura e responsabilidades
 
 - `src/app/layout.tsx`: layout raiz e metadados compartilhados;
-- `src/app/page.tsx`: página principal da landing page;
-- `src/app/page.module.css`: estilos específicos da página principal;
 - `src/app/globals.css`: estilos globais;
-- `src/components/`: componentes compartilhados entre rotas;
+- `src/app/soujunior/page.tsx`: página principal da landing page (rota `/soujunior`);
+- `src/app/soujunior/_components/`: componentes exclusivos da landing page (colocation);
+- `src/components/`: componentes globais reutilizáveis (criada conforme a necessidade);
+- `src/lib/`: funções utilitárias e integrações (criada conforme a necessidade);
+- `src/types/`: tipos TypeScript compartilhados (criada conforme a necessidade);
 - `public/`: imagens e demais arquivos estáticos;
 - `next.config.ts`: configuração do Next.js;
 - `TESTS.md`: roteiro de testes manuais e checklist de QA.
 
 ## Padrões de código
 
-> **Nota:** Este padrão foi aplicado ao projeto atual como prova de conceito. Como o `page.tsx` é boilerplate do `create-next-app` e será removido pela Issue #6, nenhum componente foi extraído nesta issue para evitar conflito. A formatação (Prettier) foi aplicada a todo o código.
-
 ### Colocation: onde colocar cada componente
 
-Para pagina, Exemplo; 
+Cada rota guarda seus próprios componentes em `_components/`. Componentes globais ficam em `src/components/`.
+
+**Página (exemplo real do projeto):**
 
 ```
-app/
-  soujunior/
-    page.tsx
-    page.module.css
+src/app/
+└── soujunior/
+    ├── page.tsx
+    └── _components/
+        ├── header/
+        │   └── header.tsx
+        └── hero-section/
+            └── hero-section.tsx
 ```
 
-Para  componente, Exemplo; 
+**Componente global (quando surgir a necessidade):**
 
 ```
-components/
-  Button/
-    Button.tsx
-    Button.module.css
+src/components/
+└── ui/
+    └── button/
+        ├── button.tsx
+        └── button.module.css
 ```
+
+> A pasta `_components` usa prefixo `_` para o Next.js não tratá-la como rota. O underscore é uma convenção oficial do App Router (private folders).
 
 ### Nomenclatura
 
@@ -193,22 +262,22 @@ components/
 | --------------------- | ------------ | ------------------------------------- |
 | Arquivos e diretórios | `kebab-case` | `user-card.tsx`, `format-currency.ts` |
 | Componentes React     | `PascalCase` | `export function DonationForm() {}`   |
-| Funções e variáveis   | `camelCase`  | `const userName = "Michael"`          |
+| Funções e variáveis   | `camelCase`  | `const userName = "Andre"`            |
 | Constantes            | `camelCase`  | `const maxDonationAmount = 1000`      |
 | Tipos e interfaces    | `PascalCase` | `type Donation = { amount: number }`  |
 
 **Exemplo real:**
 
 ```tsx
-// Arquivo: donation-card.tsx
-export function DonationCard() {
-  return <article>...</article>;
+// Arquivo: hero-section.tsx
+export function HeroSection() {
+  return <section>...</section>;
 }
 ```
 
 > Arquivo em `kebab-case`, componente em `PascalCase`.
 
-Evite nomes como `UserCard.tsx`, `user_card.tsx` ou `userCard.tsx`.
+Evite nomes como `HeroSection.tsx`, `hero_section.tsx` ou `heroSection.tsx`.
 
 ### Imports
 
@@ -226,8 +295,8 @@ Ordem consistente:
 import { useState } from "react";
 import Image from "next/image";
 
-import { Header } from "@/components/header";
-import { formatCurrency } from "@/utils/format-currency";
+import { Header } from "@/app/soujunior/_components/header/header";
+import { formatCurrency } from "@/lib/format-currency";
 
 import styles from "./page.module.css";
 ```
@@ -254,7 +323,7 @@ Princípios gerais que orientam o desenvolvimento do projeto:
 - **Evitar duplicação.** Se o mesmo código aparece em dois lugares, extraia para um utilitário ou componente compartilhado.
 - **Evitar componentes gigantes.** Se um componente passa de ~150 linhas ou acumula responsabilidades demais, divida em partes menores.
 - **Evitar abstrações prematuras.** Só crie um componente, hook ou utilitário quando houver **necessidade real** — não porque "pode ser útil algum dia".
-- **Reutilizar quando houver necessidade real.** Componentes compartilhados ficam em `src/components/`. Componentes específicos de uma rota ficam próximos dela em `_components/`.
+- **Reutilizar quando houver necessidade real.** Componentes globais ficam em `src/components/`. Componentes específicos de uma rota ficam próximos dela em `_components/`.
 - **Manter responsabilidades claras.** Cada arquivo deve ter um propósito único e bem definido.
 - **Utilizar TypeScript adequadamente.** Prefira tipos explícitos nas interfaces públicas. Evite `any` sem justificativa.
 - **Preferir imports absolutos com `@/`.** Evita caminhos relativos longos e facilita mover arquivos de lugar.
@@ -344,61 +413,6 @@ preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
 automático gerado pela Vercel; um domínio próprio poderá ser configurado
 posteriormente.
 
-
-# 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
-
-Este repositório contém o planejamento, a documentação e a execução do plano de testes de QA para a **Landing Page do SouJunior APOIA.se**. 
-
-O objetivo principal é garantir a qualidade da experiência do usuário, a responsividade móvel, a acessibilidade e a integridade funcional do fluxo de apoio/doação.
-
----
-
-## 📌 Organização do Trabalho (3 Tasks do Projeto)
-
-Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas principais (*Tasks*):
-
-### **Task 1: Planejamento & Mapeamento de Casos de Teste Manuais**
-- Elaboração do checklist de testes cobrindo **Responsividade (Mobile-First)**, **Regras de Negócio/CTAs** e **Testes Não-Funcionais** (Acessibilidade WCAG e Performance em 4G).
-- Criação e estruturação da planilha detalhada de casos de teste (`TC-01` ao `TC-11`).
-
-### **Task 2: Execução Manual, Evidências e Reporte de Defeitos**
-- Execução dos cenários em ambiente móvel e desktop.
-- Coleta de evidências visuais dos testes aprovados e reprovados.
-- Documentação e registro dos defeitos (*Bug Reports*) encontrados durante a homologação.
-
-### **Task 3: Estruturação para Automação com Robot Framework (Futuro/Em andamento)**
-- Mapeamento dos seletores (CSS/XPath) dos elementos da página.
-- Escrita dos cenários de fumaça (*Smoke Tests*) e regressão utilizando sintaxe **BDD / Gherkin** com **Robot Framework + Browser Library**.
-
----
-
-## 📊 Documentação e Planilha de Testes
-
-Os testes manuais detalhados (com Passos de Execução, Resultados Esperados e Status) estão disponíveis na planilha do projeto:
-
-- 📄 **Planilha de Testes Manuais:** [Acessar a Planilha / Documento de Testes](./docs/Plano_de_Testes_SouJunior.xlsx)
-- 🐛 **Relatório de Bugs:** [Ver Relatório de Defeitos](./docs/BUGS.md)
-
----
-
-## 🛠️ Ferramentas & Tecnologias Utilizadas
-
-- **Testes Manuais & UX/UI:** Chrome DevTools (Emulação Mobile/Rede 4G)
-- **Documentação de QA:** Planilhas (Excel) e Markdown
-- **Acessibilidade & Performance:** WCAG e Google Lighthouse
-- **Automação Web (Planejada):** Python 3.x + Robot Framework (Browser Library / Playwright)
-
----
-
-## ⚙️ Como Executar os Testes Automatizados (Robot Framework)
-
-1. **Clonar o repositório:**
-   ```bash
-   git clone https://github.com/inovacao-squad/soujunior-apoiase-landing
-   cd soujunior-apoiase-landing
-
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](./LICENSE).
-# soujunior-apoiase-landing
-Projeto do Hackathon SouJunior: landing page de captação de apoiadores via Apoia.se
