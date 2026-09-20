@@ -1,6 +1,6 @@
 import { Header } from "@/app/soujunior/_components/header/header";
 import { HeroSection } from "@/app/soujunior/_components/hero-section/hero-section";
-import { AboutSection } from "@/app/soujunior/_components/about-section/about-section";
+import { About } from "@/app/soujunior/_components/about-section/about";
 import { EcosystemSection } from "@/app/soujunior/_components/ecosystem-section/ecosystem-section";
 import { MetricsSection } from "@/app/soujunior/_components/metrics-section/metrics-section";
 import { TestimonialsSection } from "@/app/soujunior/_components/testimonials-section/testimonials-section";
@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <AboutSection />
+        <About />
         <EcosystemSection />
         <MetricsSection />
         <TestimonialsSection />
