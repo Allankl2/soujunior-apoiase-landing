@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import "./globals.css";
+
 export const metadata: Metadata = {
   title: "SouJunior Apoia.se",
   description: "Landing page do SouJunior Apoia.se",
