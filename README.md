@@ -447,7 +447,7 @@ Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas 
 
 Os testes manuais detalhados (com Passos de Execução, Resultados Esperados e Status) estão disponíveis na planilha do projeto:
 
-- 📄 **Planilha de Testes Manuais:** [Acessar a Planilha / Documento de Testes](./docs/Plano_de_Testes_SouJunior.xlsx)
+- 📄 **Planilha de Testes Manuais:** [Acessar a Planilha / Documento de Testes](./docs/Plano_de_Testes_SouJunior.pdf)
 - 🐛 **Relatório de Bugs:** [Ver Relatório de Defeitos](./docs/BUGS.md)
 
 ---
