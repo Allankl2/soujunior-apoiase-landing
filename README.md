@@ -415,7 +415,7 @@ posteriormente.
 
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
-Este repositório contém o planejamento, a documentação e a execução do plano de testes de QA para a **Landing Page do SouJunior APOIA.se**.
+Este repositório contém o planejamento, a documentação, a execução manual e a **automação de testes de regressão** para a **Landing Page do SouJunior APOIA.se**.
 
 O objetivo principal é garantir a qualidade da experiência do usuário, a responsividade móvel, a acessibilidade e a integridade funcional do fluxo de apoio/doação.
 
@@ -423,51 +423,68 @@ O objetivo principal é garantir a qualidade da experiência do usuário, a resp
 
 ## 📌 Organização do Trabalho (3 Tasks do Projeto)
 
-Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas principais (_Tasks_):
+Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas principais (*Tasks*):
 
 ### **Task 1: Planejamento & Mapeamento de Casos de Teste Manuais**
-
 - Elaboração do checklist de testes cobrindo **Responsividade (Mobile-First)**, **Regras de Negócio/CTAs** e **Testes Não-Funcionais** (Acessibilidade WCAG e Performance em 4G).
-- Criação e estruturação da planilha detalhada de casos de teste (`TC-01` ao `TC-11`).
+- Criação e estruturação do plano e cenários de testes em formato PDF e Markdown.
 
 ### **Task 2: Execução Manual, Evidências e Reporte de Defeitos**
-
 - Execução dos cenários em ambiente móvel e desktop.
 - Coleta de evidências visuais dos testes aprovados e reprovados.
-- Documentação e registro dos defeitos (_Bug Reports_) encontrados durante a homologação.
+- Documentação e registro dos defeitos (*Bug Reports*) encontrados na homologação.
 
-### **Task 3: Estruturação para Automação com Robot Framework (Futuro/Em andamento)**
-
-- Mapeamento dos seletores (CSS/XPath) dos elementos da página.
-- Escrita dos cenários de fumaça (_Smoke Tests_) e regressão utilizando sintaxe **BDD / Gherkin** com **Robot Framework + Browser Library**.
+### **Task 3: Automação Web com Robot Framework**
+- Mapeamento dos seletores (CSS e XPath) dos elementos da página.
+- Automação BDD (*Behavior-Driven Development*) para verificação do layout móvel (*abovegit add . the fold*) e redirecionamento de CTA.
+- Geração de evidências fotográficas (`.png`) anexadas automaticamente aos relatórios HTML.
 
 ---
 
-## 📊 Documentação e Planilha de Testes
+## 🤖 Cenários de Teste Automatizados (BDD)
 
-Os testes manuais detalhados (com Passos de Execução, Resultados Esperados e Status) estão disponíveis na planilha do projeto:
+* **`TC-01 - Exibição Above the Fold no Mobile`**
+  * **Objetivo:** Valida se o título principal e o botão de doação/apoio estão visíveis em dispositivos móveis (`414x896`) sem necessidade de rolagem inicial.
+  * **Tags:** `mobile`, `ux`
 
-- 📄 **Planilha de Testes Manuais:** [Acessar a Planilha / Documento de Testes](./docs/Plano_de_Testes_SouJunior.pdf)
-- 🐛 **Relatório de Bugs:** [Ver Relatório de Defeitos](./docs/BUGS.md)
+* **`TC-04 - Redirecionamento para o Apoia.se`**
+  * **Objetivo:** Valida se o clique no botão CTA redireciona o usuário para a página de campanha do Apoia.se em uma nova aba do navegador.
+  * **Tags:** `funcional`, `cta`
 
 ---
 
 ## 🛠️ Ferramentas & Tecnologias Utilizadas
 
 - **Testes Manuais & UX/UI:** Chrome DevTools (Emulação Mobile/Rede 4G)
-- **Documentação de QA:** Planilhas (Excel) e Markdown
+- **Documentação de QA:** Markdown e PDF
 - **Acessibilidade & Performance:** WCAG e Google Lighthouse
-- **Automação Web (Planejada):** Python 3.x + Robot Framework (Browser Library / Playwright)
+- **Automação Web:** Python 3.x + Robot Framework + SeleniumLibrary
+- **Navegador de Testes:** Google Chrome / ChromeDriver
 
 ---
 
-## ⚙️ Como Executar os Testes Automatizados (Robot Framework)
+## 📁 Estrutura do Projeto
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone https://github.com/inovacao-squad/soujunior-apoiase-landing
-   cd soujunior-apoiase-landing
-   ```
+```text
+soujunior-apoiase-landing/
+├── .next/                                      # Build do Next.js
+├── docs/
+│   ├── BUGS.md                                  # Relatório de Defeitos Mapeados
+│   ├── Plano_de_Testes_SouJunior.pdf            # Plano de Testes Detalhado (PDF)
+│   ├── Relatório de Inspeção de QA - SEO...pdf  # Relatório de SEO e Inspeção
+│   └── Relatório de Testes por Cenários...pdf   # Especificação de Cenários Gherkin
+├── node_modules/                               # Dependências do projeto
+├── resources/
+│   └── keywords.resource                        # Keywords, variáveis e seletores (BDD)
+├── results/                                     # Logs da execução (se configurado)
+├── tests/
+│   └── landing_page.robot                       # Casos de Teste Automatizados
+├── evidencia_apoiase.png                        # Evidência fotográfica do teste
+├── evidencia_mobile.png                         # Evidência fotográfica do teste
+├── log.html                                     # Relatório detalhado da execução
+├── report.html                                  # Resumo estatístico da execução
+├── TESTS.md                                     # Matriz e especificações dos testes
+└── README.md                                    # Documentação principal do repositório
 
 ## Licença
 
