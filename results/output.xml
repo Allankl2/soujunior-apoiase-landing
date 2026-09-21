@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.3 on win32)" generated="2026-09-21T01:19:40.449239" rpa="false" schemaversion="5">
+<suite id="s1" name="Landing Page" source="C:\Users\simon\soujunior-apoiase-landing\tests\landing_page.robot">
+<test id="s1-t1" name="TC-01 - Exibição Above the Fold no Mobile" line="8">
+<kw name="Abrir o Navegador na Landing Page" owner="keywords" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-09-21T01:19:42.899242" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\simon\\soujunior-apoiase-landing\\results\\browser\\traces\\temp\\5febc7f7-f708-4ebf-913c-080481d6dbf3"}</msg>
+<msg time="2026-09-21T01:19:43.137828" level="INFO">Starting Browser process C:\Users\simon\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:50451</msg>
+<msg time="2026-09-21T01:20:33.076396" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\simon\\soujunior-apoiase-landing\\results\\browser\\traces\\temp\\5febc7f7-f708-4ebf-913c-080481d6dbf3"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-09-21T01:19:42.890764" elapsed="50.416383"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-09-21T01:20:34.174437" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 667,
+    "width": 375
+  }
+}</msg>
+<msg time="2026-09-21T01:20:34.509014" level="INFO">Successfully created context. </msg>
+<msg time="2026-09-21T01:20:34.513825" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 667, 'width': 375}}</msg>
+<arg>viewport={'width': 375, 'height': 667}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-09-21T01:20:33.652297" elapsed="0.866628"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-09-21T01:20:54.528599" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-09-21T01:20:54.599578" level="INFO">See also file:///C:/Users/simon/soujunior-apoiase-landing/results/playwright-log.txt for additional details.</msg>
+<msg time="2026-09-21T01:20:54.683069" level="FAIL">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2026-09-21T01:20:34.540743" elapsed="21.375772">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+</status>
+</kw>
+<status status="FAIL" start="2026-09-21T01:19:42.884088" elapsed="73.075016">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+</status>
+</kw>
+<kw name="Fechar o Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-09-21T01:21:16.806428" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-09-21T01:21:16.841513" level="INFO">See also file:///C:/Users/simon/soujunior-apoiase-landing/results/playwright-log.txt for additional details.</msg>
+<msg time="2026-09-21T01:21:16.889933" level="FAIL">Deadline Exceeded</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="FAIL" start="2026-09-21T01:20:56.181762" elapsed="20.881995">Deadline Exceeded</status>
+</kw>
+<status status="FAIL" start="2026-09-21T01:20:56.110444" elapsed="20.996809">Deadline Exceeded</status>
+</kw>
+<doc>Valida se os elementos principais estão visíveis sem rolagem no celular</doc>
+<tag>mobile</tag>
+<tag>ux</tag>
+<status status="FAIL" start="2026-09-21T01:19:42.877504" elapsed="94.246222">Setup failed:
+TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+
+
+Also teardown failed:
+Deadline Exceeded</status>
+</test>
+<test id="s1-t2" name="TC-04 - Redirecionamento para o Apoia.se" line="14">
+<kw name="Abrir o Navegador na Landing Page" owner="keywords" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-09-21T01:21:19.625687" level="INFO">Switching browser to browser=6acbf7a0-854c-40e1-9dbe-b1d71306d433</msg>
+<msg time="2026-09-21T01:21:19.721970" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\simon\\soujunior-apoiase-landing\\results\\browser\\traces\\temp\\4cc37330-9ecb-454e-8821-dcbd3449f167"}</msg>
+<msg time="2026-09-21T01:21:43.895350" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\simon\\soujunior-apoiase-landing\\results\\browser\\traces\\temp\\4cc37330-9ecb-454e-8821-dcbd3449f167"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-09-21T01:21:19.422511" elapsed="25.139794"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-09-21T01:21:47.122304" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 667,
+    "width": 375
+  }
+}</msg>
+<msg time="2026-09-21T01:21:48.126973" level="INFO">Successfully created context. </msg>
+<msg time="2026-09-21T01:21:48.136606" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 667, 'width': 375}}</msg>
+<arg>viewport={'width': 375, 'height': 667}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-09-21T01:21:45.355886" elapsed="2.790328"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-09-21T01:23:02.618699" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-09-21T01:23:02.682967" level="INFO">See also file:///C:/Users/simon/soujunior-apoiase-landing/results/playwright-log.txt for additional details.</msg>
+<msg time="2026-09-21T01:23:02.752324" level="FAIL">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2026-09-21T01:21:48.154560" elapsed="74.822100">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+</status>
+</kw>
+<status status="FAIL" start="2026-09-21T01:21:19.358395" elapsed="103.680751">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+</status>
+</kw>
+<kw name="Fechar o Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-09-21T01:23:23.349672" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-09-21T01:23:23.350345" level="INFO">See also file:///C:/Users/simon/soujunior-apoiase-landing/results/playwright-log.txt for additional details.</msg>
+<msg time="2026-09-21T01:23:23.353506" level="FAIL">Deadline Exceeded</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="FAIL" start="2026-09-21T01:23:03.168138" elapsed="20.196946">Deadline Exceeded</status>
+</kw>
+<status status="FAIL" start="2026-09-21T01:23:03.132310" elapsed="20.233889">Deadline Exceeded</status>
+</kw>
+<doc>Valida se o botão de doação redireciona para o Apoia.se em nova aba</doc>
+<tag>cta</tag>
+<tag>funcional</tag>
+<status status="FAIL" start="2026-09-21T01:21:18.692857" elapsed="124.677776">Setup failed:
+TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://apoia.se/soujunior", waiting until "load"
+
+
+Also teardown failed:
+Deadline Exceeded</status>
+</test>
+<doc>Testes Automatizados de Regressão — Landing Page SouJunior</doc>
+<status status="FAIL" start="2026-09-21T01:19:40.457512" elapsed="223.100694"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">cta</stat>
+<stat pass="0" fail="1" skip="0">funcional</stat>
+<stat pass="0" fail="1" skip="0">mobile</stat>
+<stat pass="0" fail="1" skip="0">ux</stat>
+</tag>
+<suite>
+<stat name="Landing Page" id="s1" pass="0" fail="2" skip="0">Landing Page</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

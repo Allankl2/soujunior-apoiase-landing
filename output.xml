@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.3 on win32)" generated="2026-09-21T02:33:46.207735" rpa="false" schemaversion="5">
+<suite id="s1" name="Landing Page" source="C:\Users\simon\soujunior-apoiase-landing\tests\landing_page.robot">
+<test id="s1-t1" name="TC-01 - Exibição Above the Fold no Mobile" line="8">
+<kw name="Abrir o Navegador na Landing Page" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:33:53.482123" level="INFO">Opening browser 'chrome' to base url 'https://test-soujunior.vercel.app/#topo'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-21T02:33:53.472443" elapsed="18.923562"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-21T02:34:12.433195" elapsed="0.745117"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:33:53.455149" elapsed="19.730119"/>
+</kw>
+<kw name="Dado que o usuário acessa a página inicial em dispositivo móvel" owner="keywords">
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>414</arg>
+<arg>896</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-09-21T02:34:13.324214" elapsed="0.584773"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-09-21T02:34:14.953151" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-09-21T02:34:13.914889" elapsed="1.040816"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:13.285950" elapsed="1.670289"/>
+</kw>
+<kw name="Então o título principal e o botão de doação devem estar visíveis" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TITULO_PAGINA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-21T02:34:14.958810" elapsed="0.279714"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:15.329745" level="INFO">Element 'xpath=//h1' is displayed.</msg>
+<arg>${TITULO_PAGINA}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-21T02:34:15.244160" elapsed="0.085922"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_DOAR}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-21T02:34:15.330879" elapsed="0.561191"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_DOAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-21T02:34:15.893789" elapsed="0.071146"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:16.054528" level="INFO">Element 'xpath=//a[contains(@href, 'apoia.se')]' is displayed.</msg>
+<arg>${BTN_DOAR}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-21T02:34:15.968362" elapsed="0.086598"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:16.434897" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="evidencia_mobile.png"&gt;&lt;img src="evidencia_mobile.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>evidencia_mobile.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-21T02:34:16.057434" elapsed="0.378311"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:14.957427" elapsed="1.479256"/>
+</kw>
+<kw name="Fechar o Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-21T02:34:16.445050" elapsed="3.363000"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:16.442745" elapsed="3.366041"/>
+</kw>
+<doc>Valida se os elementos principais estão visíveis sem rolagem no celular</doc>
+<tag>mobile</tag>
+<tag>ux</tag>
+<status status="PASS" start="2026-09-21T02:33:53.420167" elapsed="26.392597"/>
+</test>
+<test id="s1-t2" name="TC-04 - Redirecionamento para o Apoia.se" line="14">
+<kw name="Abrir o Navegador na Landing Page" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:19.837936" level="INFO">Opening browser 'chrome' to base url 'https://test-soujunior.vercel.app/#topo'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-21T02:34:19.834130" elapsed="9.189096"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-21T02:34:29.026599" elapsed="0.780786"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:19.832113" elapsed="9.977405"/>
+</kw>
+<kw name="Dado que o usuário clica no botão &quot;Doar agora&quot;" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:29.836721" level="INFO">Opening url 'https://test-soujunior.vercel.app/#topo'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-09-21T02:34:29.831315" elapsed="0.125076"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-21T02:34:29.959883" elapsed="0.026568"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${BTN_DOAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-09-21T02:34:29.987981" elapsed="0.162630"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_DOAR}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-21T02:34:30.151424" elapsed="0.631423"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_DOAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-21T02:34:30.787594" elapsed="0.157164"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:30.967120" level="INFO">Clicking element 'xpath=//a[contains(@href, 'apoia.se')]'.</msg>
+<arg>${BTN_DOAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-21T02:34:30.954180" elapsed="0.903780"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:29.818169" elapsed="2.043264"/>
+</kw>
+<kw name="Então a página do Apoia.se deve abrir em uma nova aba" owner="keywords">
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>NEW</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2026-09-21T02:34:31.874182" elapsed="0.118722"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:44.619965" level="INFO">Current location contains 'apoia.se'.</msg>
+<arg>apoia.se</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-09-21T02:34:31.995425" elapsed="12.643485"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-21T02:34:46.000070" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="evidencia_apoiase.png"&gt;&lt;img src="evidencia_apoiase.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>evidencia_apoiase.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-21T02:34:44.661636" elapsed="1.344662"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:31.866433" elapsed="14.155997"/>
+</kw>
+<kw name="Fechar o Navegador" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-09-21T02:34:46.061769" elapsed="21.324455"/>
+</kw>
+<status status="PASS" start="2026-09-21T02:34:46.053074" elapsed="21.333972"/>
+</kw>
+<doc>Valida se o botão de doação redireciona para o Apoia.se em nova aba</doc>
+<tag>cta</tag>
+<tag>funcional</tag>
+<status status="PASS" start="2026-09-21T02:34:19.824735" elapsed="47.564110"/>
+</test>
+<doc>Testes Automatizados de Regressão — Landing Page SouJunior</doc>
+<status status="PASS" start="2026-09-21T02:33:46.382844" elapsed="81.050772"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cta</stat>
+<stat pass="1" fail="0" skip="0">funcional</stat>
+<stat pass="1" fail="0" skip="0">mobile</stat>
+<stat pass="1" fail="0" skip="0">ux</stat>
+</tag>
+<suite>
+<stat name="Landing Page" id="s1" pass="2" fail="0" skip="0">Landing Page</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
