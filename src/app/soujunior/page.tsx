@@ -1,6 +1,7 @@
 import { Header } from "@/app/soujunior/_components/header/header";
 import { HeroSection } from "@/app/soujunior/_components/hero-section/hero-section";
 import { About } from "@/app/soujunior/_components/about-section/about";
+import { Closing } from "@/app/soujunior/_components/closing-section/closing";
 import { Participate } from "@/app/soujunior/_components/participate-section/participate";
 import { Footer } from "@/app/soujunior/_components/footer/footer";
 
@@ -12,6 +13,7 @@ export default function Home() {
         <HeroSection />
         <About />
         <Participate />
+        <Closing />
       </main>
       <Footer />
     </>

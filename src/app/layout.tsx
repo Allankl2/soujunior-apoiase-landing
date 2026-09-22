@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Caveat, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
 
@@ -21,7 +21,12 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-import "./globals.css";
+const caveat = Caveat({
+  variable: "--hand",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "SouJunior Apoia.se",
@@ -32,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable} ${caveat.variable}`}
     >
       <body suppressHydrationWarning>{children}</body>
     </html>

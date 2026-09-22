@@ -3,22 +3,21 @@ type IconProps = {
 };
 
 /**
- * Ícone de seta para a direita — usado em CTAs e hints.
+ * Ícone de raio — usado como decoração na section Apoie a SouJunior.
  */
-export function IconArrow({ className }: IconProps) {
+export function IconBolt({ className }: IconProps) {
   return (
     <svg
       className={className}
       viewBox="0 0 24 24"
-      fill="none"
+      fill="currentColor"
       stroke="currentColor"
-      strokeWidth="2.4"
+      strokeWidth="1"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
+      <path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z" />
     </svg>
   );
 }
