@@ -70,7 +70,7 @@
   position: absolute;
   bottom: -1.5rem;
   right: -0.4rem;
-  font-family: var(--font-display);
+  font-family: var(--display);
   font-weight: 800;
   font-size: 5rem;
   line-height: 0.8;
@@ -154,7 +154,7 @@
 .costTitle {
   position: relative;
   z-index: 1;
-  font-family: var(--font-display);
+  font-family: var(--display);
   font-weight: 700;
   font-size: clamp(0.95rem, 1.5vw, 1.2rem);
   letter-spacing: -0.03em;
@@ -165,7 +165,7 @@
 .costDesc {
   position: relative;
   z-index: 1;
-  font-family: var(--font-sans);
+  font-family: var(--sans);
   font-size: 0.78rem;
   line-height: 1.5;
   color: var(--ink-2);

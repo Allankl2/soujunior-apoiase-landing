@@ -12,7 +12,7 @@
 }
 
 .transparencyTitle {
-  font-family: var(--font-display);
+  font-family: var(--display);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -69,4 +69,13 @@
 .transparencyDescStrong {
   color: var(--ink);
   font-weight: 600;
+}
+
+@keyframes markerIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }

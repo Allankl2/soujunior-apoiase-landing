@@ -14,7 +14,7 @@
 }
 
 .faqHeadingTitle {
-  font-family: var(--font-display);
+  font-family: var(--display);
   font-weight: 700;
   font-size: clamp(1.05rem, 2.2vw, 1.7rem);
   letter-spacing: -0.03em;
@@ -59,7 +59,7 @@
 }
 
 .faqHint {
-  font-family: var(--font-hand);
+  font-family: var(--hand);
   font-size: 1rem;
   font-weight: 600;
   color: var(--blue);

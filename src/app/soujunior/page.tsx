@@ -5,6 +5,7 @@ import { EcosystemSection } from "@/app/soujunior/_components/ecosystem-section/
 import { MetricsSection } from "@/app/soujunior/_components/metrics-section/metrics-section";
 import { TestimonialsSection } from "@/app/soujunior/_components/testimonials-section/testimonials-section";
 import { PartnersSection } from "@/app/soujunior/_components/partners-section/partners-section";
+import { Transparency } from "@/app/soujunior/_components/transparency-section/transparency";
 import { ImpactSection } from "@/app/soujunior/_components/impact-section/impact-section";
 import { DonationSection } from "@/app/soujunior/_components/donation-section/donation-section";
 import { CtaBannerSection } from "@/app/soujunior/_components/cta-banner-section/cta-banner-section";
@@ -21,6 +22,7 @@ export default function Home() {
         <MetricsSection />
         <TestimonialsSection />
         <PartnersSection />
+        <Transparency />
         <ImpactSection />
         <DonationSection />
         <CtaBannerSection />

@@ -70,7 +70,7 @@
 }
 
 .faqItemNum {
-  font-family: var(--font-mono);
+  font-family: var(--mono);
   font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -86,7 +86,7 @@
 }
 
 .faqItemText {
-  font-family: var(--font-display);
+  font-family: var(--display);
   font-weight: 600;
   font-size: clamp(0.8rem, 1.3vw, 1rem);
   letter-spacing: -0.02em;
