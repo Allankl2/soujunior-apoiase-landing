@@ -8,6 +8,7 @@ import { PartnersSection } from "@/app/soujunior/_components/partners-section/pa
 import { ImpactSection } from "@/app/soujunior/_components/impact-section/impact-section";
 import { DonationSection } from "@/app/soujunior/_components/donation-section/donation-section";
 import { CtaBannerSection } from "@/app/soujunior/_components/cta-banner-section/cta-banner-section";
+import { Closing } from "@/app/soujunior/_components/closing-section/closing";
 import { Footer } from "@/app/soujunior/_components/footer/footer";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <ImpactSection />
         <DonationSection />
         <CtaBannerSection />
+        <Closing />
       </main>
       <Footer />
     </>
