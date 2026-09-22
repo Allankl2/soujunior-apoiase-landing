@@ -3,7 +3,7 @@ type IconProps = {
 };
 
 /**
- * Ícone de faísca — usado como decoração na section Apoie a SouJunior.
+ * Ícone de estrela/faísca — usado no título "Perguntas frequentes".
  */
 export function IconSparkle({ className }: IconProps) {
   return (
