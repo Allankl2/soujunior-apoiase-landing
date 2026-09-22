@@ -13,8 +13,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <About />
-        <Transparency />
         <Participate />
+        <Transparency />
         <Closing />
       </main>
       <Footer />
