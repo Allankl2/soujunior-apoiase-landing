@@ -9,6 +9,10 @@ type SectionProps = {
   "aria-labelledby"?: string;
 };
 
+/**
+ * Wrapper de `<section>` com padding vertical responsivo (clamp).
+ * Aceita `id` e `aria-labelledby` para âncoras e acessibilidade.
+ */
 export function Section({
   children,
   id,

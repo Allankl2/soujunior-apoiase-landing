@@ -11,6 +11,16 @@ type RevealProps = {
   className?: string;
 };
 
+/**
+ * Client Component que revela o conteúdo com fade + translate ao entrar no viewport.
+ * Usa IntersectionObserver para detectar visibilidade.
+ *
+ * - `delay`: ms de espera antes de animar (padrão: 0)
+ * - `variant`: "default" (translateY) ou "scale"
+ *
+ * Respeita `prefers-reduced-motion` (conteúdo aparece imediatamente via CSS).
+ * É o único Client Component compartilhado — mantém o resto como Server.
+ */
 export function Reveal({
   children,
   delay = 0,
