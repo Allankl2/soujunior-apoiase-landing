@@ -95,6 +95,22 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "SouJunior",
+  url: SITE.url,
+  logo: `${SITE.url}/logobranco.png`,
+  description:
+    "Comunidade sem fins lucrativos que conecta pessoas em início de carreira a projetos reais de tecnologia.",
+  sameAs: [
+    "https://www.linkedin.com/company/soujunior/",
+    "https://www.instagram.com/soujunior.tech/",
+    "https://www.youtube.com/channel/UC3qp3wN75rI8TW7o5eGilYQ",
+    "https://github.com/SouJunior/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -105,6 +121,14 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${funnelDisplay.variable} ${funnelSans.variable} ${jetBrainsMono.variable} ${caveat.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );
