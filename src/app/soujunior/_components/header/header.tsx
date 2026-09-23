@@ -68,7 +68,7 @@ export function Header() {
               aria-label="Instituto SouJunior"
             >
               <Image
-                src="/logoazul.png"
+                src="/logoazul.webp"
                 alt="SouJunior Instituto"
                 width={330}
                 height={86}
@@ -110,7 +110,7 @@ export function Header() {
             onClick={() => setMenuOpen(false)}
           >
             <Image
-              src="/logobranco.png"
+              src="/logobranco.webp"
               alt="SouJunior Instituto"
               width={330}
               height={86}
