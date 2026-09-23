@@ -39,8 +39,8 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-h: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --display: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+  --sans: "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
   --hand: "Caveat", cursive;
 }
@@ -65,7 +65,7 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans);
+  font-family: var(--sans);
   font-size: 16px;
   line-height: 1.55;
   overflow-x: hidden;

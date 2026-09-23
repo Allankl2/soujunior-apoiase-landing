@@ -156,15 +156,12 @@
     opacity 0.3s ease;
 }
 
-.burgerOpen span:nth-child(1),
-[class*="burgerOpen"] span:nth-child(1) {
+.burgerOpen span:nth-child(1) {
   opacity: 0 !important;
 }
 
 .burgerOpen span:nth-child(2),
-.burgerOpen span:nth-child(3),
-[class*="burgerOpen"] span:nth-child(2),
-[class*="burgerOpen"] span:nth-child(3) {
+.burgerOpen span:nth-child(3) {
   position: absolute !important;
   top: calc(50% - 1px) !important;
   left: calc(50% - 6px) !important;
@@ -174,13 +171,11 @@
   transform-origin: 100% 50% !important;
 }
 
-.burgerOpen span:nth-child(2),
-[class*="burgerOpen"] span:nth-child(2) {
+.burgerOpen span:nth-child(2) {
   transform: rotate(40deg) !important;
 }
 
-.burgerOpen span:nth-child(3),
-[class*="burgerOpen"] span:nth-child(3) {
+.burgerOpen span:nth-child(3) {
   transform: rotate(-40deg) !important;
 }
 
