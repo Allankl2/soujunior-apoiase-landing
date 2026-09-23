@@ -49,46 +49,6 @@ adotada e, quando disponível, o resultado medido.
 - ESLint 9;
 - [Prettier](https://prettier.io/) para formatação automática de código.
 
-## Estrutura do projeto
-
-O projeto utiliza o **App Router** do Next.js com **colocation**: cada rota guarda seus próprios componentes em uma pasta privada `_components/`. Componentes verdadeiramente compartilhados entre rotas ficam em `src/components/`.
-
-As pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver
-código que pertença a elas. **Não criar pastas vazias.**
-
-```
-src/
-├── app/                              # Rotas do Next.js (App Router)
-│   ├── layout.tsx                    # Layout raiz
-│   ├── globals.css                   # Estilos globais
-│   └── soujunior/                    # Rota: /soujunior
-│       ├── page.tsx                  # Página da landing
-│       └── _components/              # Componentes EXCLUSIVOS da landing
-│           ├── header/
-│           │   └── header.tsx
-│           ├── hero-section/
-│           │   └── hero-section.tsx
-│           ├── about-section/
-│           │   └── about-section.tsx
-│           └── ... (demais seções)
-│
-├── components/                       # COMPONENTES GLOBAIS REUTILIZÁVEIS
-│   └── ui/                           # Elementos atômicos (Design System)
-│       ├── button/
-│       │   └── button.tsx
-│       ├── input/
-│       │   └── input.tsx
-│       └── modal/
-│           └── modal.tsx
-│
-├── lib/                              # Funções utilitárias, clientes de API, configs
-│   ├── format-currency.ts
-│   └── api-client.ts
-│
-└── types/                            # Tipos TypeScript compartilhados
-    └── donation.ts
-```
-
 **Regra de ouro:** as pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver código real que pertença a elas. **Não criar pastas vazias.**
 
 ### Responsabilidade de cada diretório
@@ -159,12 +119,6 @@ reprodutíveis. Execute:
 ```bash
 npm install
 ```
-
-### 3. Variáveis de ambiente
-
-O projeto não utiliza variáveis de ambiente neste momento. Caso novas
-integrações sejam adicionadas, documente aqui o nome e a finalidade de cada
-variável necessária, sem incluir valores sensíveis no repositório.
 
 ### 4. Iniciar o modo de desenvolvimento
 
@@ -279,34 +233,6 @@ export function HeroSection() {
 
 Evite nomes como `HeroSection.tsx`, `hero_section.tsx` ou `heroSection.tsx`.
 
-### Imports
-
-Ordem consistente:
-
-1. Módulos nativos (`react`, `next`)
-2. Bibliotecas externas
-3. Imports internos com `@/`
-4. Imports relativos
-5. Estilos
-
-**Exemplo:**
-
-```tsx
-import { useState } from "react";
-import Image from "next/image";
-
-import { Header } from "@/app/soujunior/_components/header/header";
-import { formatCurrency } from "@/lib/format-currency";
-
-import styles from "./page.module.css";
-```
-
-**Sempre use o alias `@/`** em vez de caminhos relativos longos
-(`../../../components/header`). Ele está configurado em `tsconfig.json`:
-
-```json
-"paths": { "@/*": ["./src/*"] }
-```
 
 ### Estilização
 
@@ -358,19 +284,6 @@ O Prettier ignora automaticamente as pastas listadas em `.prettierignore`
 5. Abra um pull request descrevendo o problema, a solução e os testes
    realizados.
 
-## Atenção — Next.js 16
-
-O projeto usa Next.js 16.3.5. Há mudanças importantes em relação às versões
-anteriores:
-
-- `params`, `searchParams`, `cookies()` e `headers()` agora são **assíncronos**.
-  Sempre use `await`;
-- `middleware.ts` foi **depreciado** em favor de `proxy.ts`;
-- Rotas paralelas exigem `default.tsx` explícito.
-
-**Não é necessário migrar nada agora.** O time só precisa estar ciente dessas
-mudanças ao escrever código novo.
-
 ## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
 
 O roteiro de testes manuais e checklist de qualidade está em
@@ -390,28 +303,6 @@ npm run lint
 Não existe uma meta de cobertura automatizada definida para o projeto.
 Após a execução dos testes, atualizar esta seção com o status dos cenários
 manuais e os resultados relevantes de acessibilidade, performance e conversão.
-
-## Critérios de aceite do escopo [ATUALIZAR PÓS-DESENVOLVIMENTO]
-
-A página será considerada pronta quando:
-
-- o visitante entender o propósito da iniciativa em até 5 segundos no hero;
-- o CTA de doação estiver visível sem exigir a rolagem completa da página;
-- o redirecionamento para a página da SouJunior no Apoia.se funcionar;
-- o carregamento ficar abaixo de 3 segundos em uma conexão 4G;
-- o tracking de conversão estiver ativo e testado antes do lançamento.
-
-O tracking deve medir a conversão de visitante em doador. A ferramenta e os
-identificadores utilizados devem ser documentados quando forem definidos.
-Após a validação, registrar aqui o status de cada critério e a data da
-verificação.
-
-## Deploy [ATUALIZAR PÓS-DESENVOLVIMENTO]
-
-A hospedagem prevista no escopo é a [Vercel](https://vercel.com/), utilizando o
-preset de [Next.js](https://nextjs.org/). O domínio inicial será o endereço
-automático gerado pela Vercel; um domínio próprio poderá ser configurado
-posteriormente.
 
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
