@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.6rem;
   padding: 1rem 0.85rem 0.85rem;
   background: var(--paper);
@@ -62,22 +63,8 @@
 .top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 0.5rem;
-}
-
-.num {
-  font-family: var(--mono);
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--ink-3);
-}
-
-@media (min-width: 768px) {
-  .num {
-    font-size: 0.6rem;
-  }
 }
 
 .icon {
@@ -150,52 +137,11 @@
   line-height: 1.45;
   color: var(--ink-2);
   letter-spacing: -0.005em;
-  flex: 1;
 }
 
 @media (min-width: 768px) {
   .desc {
     font-size: 0.88rem;
     line-height: 1.5;
-  }
-}
-
-.tag {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--mono);
-  font-size: 0.5rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 0.2rem;
-}
-
-@media (min-width: 768px) {
-  .tag {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.56rem;
-    margin-top: 0.3rem;
-  }
-}
-
-.tagDot {
-  width: 0.28rem;
-  height: 0.28rem;
-  border-radius: 50%;
-  background: var(--green);
-  flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-  .tagDot {
-    width: 0.3rem;
-    height: 0.3rem;
   }
 }
