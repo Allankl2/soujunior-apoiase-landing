@@ -25,8 +25,8 @@ export function HeroSection() {
             <p className={styles.lead}>
               A SouJunior aproxima o aprendizado da realidade profissional.
               Apoiamos quem está começando na tecnologia com{" "}
-              <strong>projetos reais, mentoria e comunidade</strong> — para que a
-              primeira oportunidade deixe de ser uma barreira.
+              <strong>projetos reais, mentoria e comunidade</strong> — para que
+              a primeira oportunidade deixe de ser uma barreira.
             </p>
             <div className={styles.heroActions}>
               <Link

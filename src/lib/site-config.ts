@@ -12,13 +12,12 @@
  * concatenar com paths (`${SITE.officialUrl}/labs` → ok).
  */
 export const SITE = {
-
   /** Landing do SouJunior Labs — acelerador de carreira via projetos. */
-  labsUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd1IspO3Hwylce2kHtIsmyBAkH7p3VFmdYUmdL75YXZ-DSNBA/viewform",
+  labsUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSd1IspO3Hwylce2kHtIsmyBAkH7p3VFmdYUmdL75YXZ-DSNBA/viewform",
 
   /** Landing do SouJunior Talk — prática de inglês em grupo. */
   talkUrl: "https://discord.com/invite/564CDre9F3",
-
 } as const;
 
 /**

@@ -22,18 +22,24 @@ type StatItem = {
 };
 
 const STATS: StatItem[] = [
-  { value: 120, prefix: "+", label: "Voluntários ativos na comunidade", deco: "users" },
+  {
+    value: 120,
+    prefix: "+",
+    label: "Voluntários ativos na comunidade",
+    deco: "users",
+  },
   { text: "100%", label: "Gratuito para quem participa", deco: "gift" },
   { text: "2022", label: "Ano de fundação do instituto", deco: "flag" },
   { text: "1", label: "Propósito: abrir caminhos", deco: "compass" },
 ];
 
-const DECO_ICONS: Record<StatItem["deco"], (props: IconProps) => JSX.Element> = {
-  users: UsersIcon,
-  gift: GiftIcon,
-  flag: FlagIcon,
-  compass: CompassIcon,
-};
+const DECO_ICONS: Record<StatItem["deco"], (props: IconProps) => JSX.Element> =
+  {
+    users: UsersIcon,
+    gift: GiftIcon,
+    flag: FlagIcon,
+    compass: CompassIcon,
+  };
 
 export function StatsGrid() {
   return (
@@ -45,9 +51,7 @@ export function StatsGrid() {
             <Reveal key={stat.label} delay={i * 90}>
               <article className={styles.statCard}>
                 <div className={styles.statCardTop}>
-                  <span className={styles.statKicker}>
-                    0{i + 1} / 04
-                  </span>
+                  <span className={styles.statKicker}>0{i + 1} / 04</span>
                   <span className={styles.statDeco} aria-hidden="true">
                     <Deco />
                   </span>
