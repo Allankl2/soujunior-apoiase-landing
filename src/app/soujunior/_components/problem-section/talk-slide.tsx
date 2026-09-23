@@ -18,13 +18,13 @@ export function TalkSlide({ onCtaClick }: TalkSlideProps) {
         </h3>
         <p className={styles.slideSub}>
           Se você está procurando uma maneira de{" "}
-          <strong>aprimorar seu inglês com pessoas reais</strong>, temos uma excelente
-          notícia! A SouJunior Talk é um{" "}
+          <strong>aprimorar seu inglês com pessoas reais</strong>, temos uma
+          excelente notícia! A SouJunior Talk é um{" "}
           <span className={`${styles.accent} ${styles.accentPurple}`}>
             ambiente de treino
           </span>{" "}
-          que oferece uma plataforma interativa para você praticar suas habilidades
-          linguísticas.
+          que oferece uma plataforma interativa para você praticar suas
+          habilidades linguísticas.
         </p>
       </div>
 
@@ -39,8 +39,9 @@ export function TalkSlide({ onCtaClick }: TalkSlideProps) {
             <span className={styles.em}>privilégio</span>.
           </p>
           <p className={styles.talkSub}>
-            Muita gente entende gramática, mas trava na hora de falar. A SouJunior Talk
-            oferece um <strong>ambiente seguro e interativo</strong> para treinar
+            Muita gente entende gramática, mas trava na hora de falar. A
+            SouJunior Talk oferece um{" "}
+            <strong>ambiente seguro e interativo</strong> para treinar
             conversação com pessoas reais, no seu ritmo e sem julgamentos.
           </p>
           <a
@@ -62,8 +63,8 @@ export function TalkSlide({ onCtaClick }: TalkSlideProps) {
             <div className={styles.talkCardBody}>
               <div className={styles.talkCardTitle}>Conversação real</div>
               <p className={styles.talkCardDesc}>
-                Pratique com pessoas de verdade em encontros ao vivo, sem pressão e no
-                seu ritmo.
+                Pratique com pessoas de verdade em encontros ao vivo, sem
+                pressão e no seu ritmo.
               </p>
             </div>
           </div>
@@ -74,8 +75,8 @@ export function TalkSlide({ onCtaClick }: TalkSlideProps) {
             <div className={styles.talkCardBody}>
               <div className={styles.talkCardTitle}>Sem julgamentos</div>
               <p className={styles.talkCardDesc}>
-                Ambiente acolhedor para errar, tentar de novo e ganhar confiança para
-                falar.
+                Ambiente acolhedor para errar, tentar de novo e ganhar confiança
+                para falar.
               </p>
             </div>
           </div>
@@ -86,7 +87,8 @@ export function TalkSlide({ onCtaClick }: TalkSlideProps) {
             <div className={styles.talkCardBody}>
               <div className={styles.talkCardTitle}>Portas que se abrem</div>
               <p className={styles.talkCardDesc}>
-                Inglês fluente amplia seu alcance no mercado de tecnologia e no mundo.
+                Inglês fluente amplia seu alcance no mercado de tecnologia e no
+                mundo.
               </p>
             </div>
           </div>

@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 
 import { Reveal } from "@/components/reveal/reveal";
 
@@ -132,8 +138,9 @@ export function IniciativasSection() {
       return;
     }
     if (Math.abs(dragX) > DRAG_THRESHOLD) {
-      if (dragX < 0) next(); // arrastou pra esquerda → próximo
-      else prev();           // arrastou pra direita  → anterior
+      if (dragX < 0)
+        next(); // arrastou pra esquerda → próximo
+      else prev(); // arrastou pra direita  → anterior
     }
     setDragX(0);
     setDragging(false);
@@ -219,16 +226,28 @@ export function IniciativasSection() {
         <div className={styles.labsBlock}>
           {/* Doodles decorativos (✦) posicionados via CSS (.s1–.s4).
               São puramente visuais → aria-hidden. */}
-          <span className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s1}`} aria-hidden="true">
+          <span
+            className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s1}`}
+            aria-hidden="true"
+          >
             ✦
           </span>
-          <span className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s2}`} aria-hidden="true">
+          <span
+            className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s2}`}
+            aria-hidden="true"
+          >
             ✦
           </span>
-          <span className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s3}`} aria-hidden="true">
+          <span
+            className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s3}`}
+            aria-hidden="true"
+          >
             ✦
           </span>
-          <span className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s4}`} aria-hidden="true">
+          <span
+            className={`${styles.labsDoodle} ${styles.doodleStar} ${styles.s4}`}
+            aria-hidden="true"
+          >
             ✦
           </span>
 

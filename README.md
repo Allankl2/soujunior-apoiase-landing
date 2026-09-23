@@ -423,33 +423,36 @@ O objetivo principal é garantir a qualidade da experiência do usuário, a resp
 
 ## 📌 Organização do Trabalho (3 Tasks do Projeto)
 
-Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas principais (*Tasks*):
+Para garantir uma cobertura completa de QA, o projeto foi dividido em 3 tarefas principais (_Tasks_):
 
 ### **Task 1: Planejamento & Mapeamento de Casos de Teste Manuais**
+
 - Elaboração do checklist de testes cobrindo **Responsividade (Mobile-First)**, **Regras de Negócio/CTAs** e **Testes Não-Funcionais** (Acessibilidade WCAG e Performance em 4G).
 - Criação e estruturação do plano e cenários de testes em formato PDF e Markdown.
 
 ### **Task 2: Execução Manual, Evidências e Reporte de Defeitos**
+
 - Execução dos cenários em ambiente móvel e desktop.
 - Coleta de evidências visuais dos testes aprovados e reprovados.
-- Documentação e registro dos defeitos (*Bug Reports*) encontrados na homologação.
+- Documentação e registro dos defeitos (_Bug Reports_) encontrados na homologação.
 
 ### **Task 3: Automação Web com Robot Framework**
+
 - Mapeamento dos seletores (CSS e XPath) dos elementos da página.
-- Automação BDD (*Behavior-Driven Development*) para verificação do layout móvel (*abovegit add . the fold*) e redirecionamento de CTA.
+- Automação BDD (_Behavior-Driven Development_) para verificação do layout móvel (_abovegit add . the fold_) e redirecionamento de CTA.
 - Geração de evidências fotográficas (`.png`) anexadas automaticamente aos relatórios HTML.
 
 ---
 
 ## 🤖 Cenários de Teste Automatizados (BDD)
 
-* **`TC-01 - Exibição Above the Fold no Mobile`**
-  * **Objetivo:** Valida se o título principal e o botão de doação/apoio estão visíveis em dispositivos móveis (`414x896`) sem necessidade de rolagem inicial.
-  * **Tags:** `mobile`, `ux`
+- **`TC-01 - Exibição Above the Fold no Mobile`**
+  - **Objetivo:** Valida se o título principal e o botão de doação/apoio estão visíveis em dispositivos móveis (`414x896`) sem necessidade de rolagem inicial.
+  - **Tags:** `mobile`, `ux`
 
-* **`TC-04 - Redirecionamento para o Apoia.se`**
-  * **Objetivo:** Valida se o clique no botão CTA redireciona o usuário para a página de campanha do Apoia.se em uma nova aba do navegador.
-  * **Tags:** `funcional`, `cta`
+- **`TC-04 - Redirecionamento para o Apoia.se`**
+  - **Objetivo:** Valida se o clique no botão CTA redireciona o usuário para a página de campanha do Apoia.se em uma nova aba do navegador.
+  - **Tags:** `funcional`, `cta`
 
 ---
 
@@ -493,3 +496,4 @@ Este projeto está licenciado sob a [MIT License](./LICENSE).
 # soujunior-apoiase-landing
 
 Projeto do Hackathon SouJunior: landing page de captação de apoiadores via Apoia.se
+```
