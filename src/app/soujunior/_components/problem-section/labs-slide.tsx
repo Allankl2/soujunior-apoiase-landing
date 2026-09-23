@@ -68,7 +68,7 @@ export function LabsSlide({ onCtaClick }: LabsSlideProps) {
             Sem `sizes`, o Next assume 100vw e baixa imagens grandes demais.
           */}
           <Image
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.1.1&auto=format&fit=crop&w=900&q=80"
+            src="/images/problem_team.webp"
             alt="Pessoa refletindo sobre carreira"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
