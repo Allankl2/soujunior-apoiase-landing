@@ -1,0 +1,201 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 0.85rem 0.85rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2.5px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 4px 5px 0 rgba(7, 18, 51, 0.28);
+  transition:
+    transform 0.28s var(--ease),
+    box-shadow 0.28s var(--ease),
+    background-color 0.25s var(--ease);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 1.6rem 1.4rem 1.4rem;
+    border-radius: 22px;
+    border-width: 3px;
+    box-shadow: 5px 6px 0 rgba(7, 18, 51, 0.28);
+    gap: 0.8rem;
+  }
+}
+
+.v1 {
+  transform: rotate(-1.4deg);
+}
+.v2 {
+  transform: rotate(1deg);
+}
+.v3 {
+  transform: rotate(-1deg);
+}
+.v4 {
+  transform: rotate(1.4deg);
+}
+
+.card:hover {
+  transform: rotate(0) translateY(-4px) scale(1.015);
+  box-shadow: 8px 10px 0 rgba(7, 18, 51, 0.38);
+}
+
+.v1:hover {
+  background: var(--blue-pale);
+}
+.v2:hover {
+  background: var(--purple-soft);
+}
+.v3:hover {
+  background: var(--pink-light);
+}
+.v4:hover {
+  background: #fff3c9;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.num {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+}
+
+@media (min-width: 768px) {
+  .num {
+    font-size: 0.6rem;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 12px;
+  border: 2.5px solid var(--ink);
+  display: grid;
+  place-items: center;
+  box-shadow: 3px 4px 0 rgba(10, 20, 40, 0.18);
+  transition: transform 0.3s var(--ease);
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 16px;
+    border-width: 3px;
+  }
+}
+
+.card:hover .icon {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.v1 .icon {
+  background: var(--blue);
+  color: #fff;
+}
+.v2 .icon {
+  background: var(--purple-3);
+  color: #fff;
+}
+.v3 .icon {
+  background: var(--pink);
+  color: var(--ink);
+}
+.v4 .icon {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.iconSvg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .iconSvg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  line-height: 1.05;
+}
+
+.desc {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+  letter-spacing: -0.005em;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+}
+
+.tag {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+@media (min-width: 768px) {
+  .tag {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.56rem;
+    margin-top: 0.3rem;
+  }
+}
+
+.tagDot {
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .tagDot {
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+}

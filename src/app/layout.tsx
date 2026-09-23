@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import type { Metadata } from "next";
+import { Caveat, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
 import './globals.css';
 
@@ -21,6 +21,13 @@ const jetBrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
+const caveat = Caveat({
+  variable: "--hand",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: 'SouJunior Apoia.se',
   description: 'Landing page do SouJunior Apoia.se',
@@ -32,10 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body suppressHydrationWarning>
-        {children}
-      </body>
+    <html
+      lang="pt-BR"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable} ${caveat.variable}`}
+    >
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
