@@ -2,7 +2,7 @@ import { Header } from "@/app/soujunior/_components/header/header";
 import { HeroSection } from "@/app/soujunior/_components/hero-section/hero-section";
 import { About } from "@/app/soujunior/_components/about-section/about";
 import { EcosystemSection } from "@/app/soujunior/_components/ecosystem-section/ecosystem-section";
-import { ProblemSection } from '@/app/soujunior/_components/problem-section/problem-section';
+import { IniciativasSection } from '@/app/soujunior/_components/problem-section/iniciativas-section';
 import { MetricsSection } from "@/app/soujunior/_components/metrics-section/metrics-section";
 import { TestimonialsSection } from "@/app/soujunior/_components/testimonials-section/testimonials-section";
 import { PartnersSection } from "@/app/soujunior/_components/partners-section/partners-section";
@@ -20,7 +20,7 @@ export default function Home() {
         <HeroSection />
         <About />
         <EcosystemSection />
-        <ProblemSection />
+        <IniciativasSection />
         <MetricsSection />
         <TestimonialsSection />
         <PartnersSection />
