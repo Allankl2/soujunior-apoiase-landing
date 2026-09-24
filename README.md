@@ -237,6 +237,10 @@ npm run lint
 ```
 
 ---
+## 📊 Google Tag Manager
+
+Este projeto possui integração com o **Google Tag Manager (GTM)** para gerenciamento centralizado de tags, eventos e analytics.
+---
 
 ## Testes e QA
 
