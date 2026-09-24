@@ -12,6 +12,9 @@
  * concatenar com paths (`${SITE.officialUrl}/labs` → ok).
  */
 export const SITE = {
+  /** URL canônica do site — usada em metadataBase, Open Graph, sitemap e robots. */
+  url: "https://soujunior-apoiase-landing.vercel.app",
+
   /** Landing do SouJunior Labs — acelerador de carreira via projetos. */
   labsUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSd1IspO3Hwylce2kHtIsmyBAkH7p3VFmdYUmdL75YXZ-DSNBA/viewform",
