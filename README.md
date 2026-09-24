@@ -64,8 +64,8 @@ A página deve comunicar o propósito da iniciativa rapidamente, gerar confianç
 
 ## Pré-requisitos
 
-- Node.js `24.0.0` ou superior (série `24.x`)
-- npm `10` ou superior
+- Node.js `24.21.0` ou superior (série `24.x`)
+- npm `11.19.0` ou superior
 
 Confirme as versões instaladas:
 
