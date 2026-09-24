@@ -3,6 +3,7 @@
 Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores via [Apoia.se](https://apoia.se/), apresentando a missão da comunidade, seu impacto social e chamadas para ação que direcionam o visitante à doação.
 
 **Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing
+**Deploy:** https://soujunior-apoiase-landing-qxn7bljmt-tdcas-projects.vercel.app
 
 ---
 
@@ -47,20 +48,6 @@ A página deve comunicar o propósito da iniciativa rapidamente, gerar confianç
 4. **Prova social** — números, depoimentos e parceiros;
 5. **Uso da doação** — explicação tangível de onde o dinheiro vai;
 6. **Rodapé institucional** — CNPJ, contatos e redes sociais.
-
-**Regra de ouro:** as pastas `components/`, `lib/` e `types/` só devem ser criadas quando houver código real que pertença a elas. **Não criar pastas vazias.**
-
-### Responsabilidade de cada diretório
-
-| Diretório                     | Responsabilidade                                     |
-| ----------------------------- | ---------------------------------------------------- |
-| `src/app/`                    | Rotas, layouts e páginas do Next.js (App Router)     |
-| `src/app/<rota>/_components/` | Componentes **específicos** de uma rota (colocation) |
-| `src/components/`             | Componentes **globais** reutilizáveis entre rotas    |
-| `src/components/ui/`          | Elementos atômicos de UI (botões, inputs, modais)    |
-| `src/lib/`                    | Funções utilitárias, clientes de API, configs        |
-| `src/types/`                  | Tipos TypeScript compartilhados entre features       |
-| `public/`                     | Arquivos estáticos (imagens, favicons, fontes)       |
 
 ## Stack tecnológica
 
@@ -111,13 +98,17 @@ cd soujunior-apoiase-landing
 npm install
 ```
 
-### 4. Iniciar o modo de desenvolvimento
+**3. Variáveis de ambiente**
+
+O projeto não utiliza variáveis de ambiente no momento. Caso novas integrações sejam adicionadas, documentar aqui nome e finalidade de cada variável, sem incluir valores sensíveis no repositório.
+
+**4. Iniciar o modo de desenvolvimento**
 
 ```bash
 npm run dev
 ```
 
-Acesse [http://localhost:3000/soujunior](http://localhost:3000/soujunior). Para encerrar, `Ctrl+C`.
+Acesse [http://localhost:3000](http://localhost:3000). Para encerrar, `Ctrl+C`.
 
 **5. Validar o código**
 
@@ -133,7 +124,7 @@ npm run build
 npm run start
 ```
 
-Disponível em [http://localhost:3000/soujunior](http://localhost:3000/soujunior). Rode `npm run build` novamente sempre que o código for alterado.
+Disponível em [http://localhost:3000](http://localhost:3000). Rode `npm run build` novamente sempre que o código for alterado.
 
 ---
 
@@ -161,19 +152,20 @@ O projeto usa **App Router** com **colocation**: cada rota guarda seus próprios
 ```
 src/
 ├── app/
-│   ├── layout.tsx                # Layout raiz
+│   ├── layout.tsx                # Layout raiz + metadata global (SEO)
 │   ├── globals.css               # Estilos globais
-│   └── soujunior/                # Rota: /soujunior
-│       ├── page.tsx
-│       └── _components/          # Componentes exclusivos da landing, um por seção
-│           ├── header/
-│           ├── hero-section/
-│           ├── about-section/          # Missão, narrativa e números de impacto
-│           ├── problem-section/        # O problema do acesso à tecnologia
-│           ├── transparency-section/   # Uso da doação + FAQ
-│           ├── participate-section/    # Como apoiar / CTAs
-│           ├── closing-section/        # Fechamento e reforço de marca
-│           └── footer/
+│   ├── page.tsx                  # Landing page (rota /)
+│   ├── robots.ts                 # Geração automática do robots.txt
+│   ├── sitemap.ts                # Geração automática do sitemap.xml
+│   └── _components/              # Componentes exclusivos da landing, um por seção
+│       ├── header/
+│       ├── hero-section/
+│       ├── about-section/          # Missão, narrativa e números de impacto
+│       ├── problem-section/        # O problema do acesso à tecnologia
+│       ├── transparency-section/   # Uso da doação + FAQ
+│       ├── participate-section/    # Como apoiar / CTAs
+│       ├── closing-section/        # Fechamento e reforço de marca
+│       └── footer/
 │
 ├── components/                   # Componentes globais reutilizáveis
 │   ├── reveal/                   # Animações de entrada (scroll reveal)
@@ -203,7 +195,7 @@ src/
 - Reutilizável em várias rotas → `src/components/` (ex.: `Button` usado em várias páginas)
 - Utilitário puro → `src/lib/` (ex.: `formatCurrency()`, `fetchDonations()`)
 
-> 💡 `_components` usa underscore por convenção oficial do Next.js: qualquer pasta dentro de `app/` vira rota pública, a menos que comece com `_`. Isso evita URLs indesejadas como `/soujunior/_components/header`.
+> 💡 `_components` usa underscore por convenção oficial do Next.js: qualquer pasta dentro de `app/` vira rota pública, a menos que comece com `_`. Isso evita URLs indesejadas como `/_components/header`.
 
 ---
 
@@ -227,7 +219,6 @@ export function HeroSection() {
 ```
 
 Evite nomes como `HeroSection.tsx`, `hero_section.tsx` ou `heroSection.tsx`.
-
 
 ### Estilização
 
@@ -281,8 +272,6 @@ Validação automatizada disponível:
 npm run lint
 ```
 
-
-
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
 Este repositório contém o planejamento, a documentação, a execução manual e a **automação de testes de regressão** para a **Landing Page do SouJunior APOIA.se**.
@@ -318,13 +307,13 @@ Squad de Inovação — Hackathon SouJunior.
 | Nome             | Papel          | Nível  | LinkedIn                                                                                                      |
 | ---------------- | -------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
 | Allan Fortes     | Dev            | Mentor | [linkedin.com/in/allan-fortes-barbosa-b40520211](https://www.linkedin.com/in/allan-fortes-barbosa-b40520211/) |
-| Gabriel Barba    | Dev            | Júnior | [linkedin.com/in/gabriel--barba](https://www.linkedin.com/in/gabriel--barba/)                                 |
-| Simone Blasse    | QA             | Júnior | [linkedin.com/in/simoneblasse](https://www.linkedin.com/in/simoneblasse)                                      |
-| Rodrigo Marques  | PO/PM          | Júnior | [linkedin.com/in/rodrigo-marques7](https://www.linkedin.com/in/rodrigo-marques7/)                             |
-| Dênis Santos     | Dev            | Júnior | [linkedin.com/in/denisilva-s](https://www.linkedin.com/in/denisilva-s/)                                       |
-| Michael Ribeiro  | Dev            | Júnior | [linkedin.com/in/michael-ribeiro-br](https://www.linkedin.com/in/michael-ribeiro-br/)                         |
-| Simara Santos    | Dev            | Júnior | [linkedin.com/in/simara-santos-silva-bb5732247](https://www.linkedin.com/in/simara-santos-silva-bb5732247/)   |
-| Yasmin Beviláqua | UX/UI Designer | Júnior | [linkedin.com/in/yasmin-bevilaqua](https://www.linkedin.com/in/yasmin-bevilaqua/)                             |
+| Gabriel Barba    | Dev            | Júnior | [linkedin.com/in/gabriel--barba](https://linkedin.com/in/gabriel--barba/)                                     |
+| Simone Blasse    | QA             | Júnior | [linkedin.com/in/simoneblasse](https://linkedin.com/in/simoneblasse)                                          |
+| Rodrigo Marques  | PO/PM          | Júnior | [linkedin.com/in/rodrigo-marques7](https://linkedin.com/in/rodrigo-marques7/)                                 |
+| Dênis Santos     | Dev            | Júnior | [linkedin.com/in/denisilva-s](https://linkedin.com/in/denisilva-s/)                                           |
+| Michael Ribeiro  | Dev            | Júnior | [linkedin.com/in/michael-ribeiro-br](https://linkedin.com/in/michael-ribeiro-br/)                             |
+| Simara Santos    | Dev            | Júnior | [linkedin.com/in/simara-santos-silva-bb5732247](https://linkedin.com/in/simara-santos-silva-bb5732247/)       |
+| Yasmin Beviláqua | UX/UI Designer | Júnior | [linkedin.com/in/yasmin-bevilaqua](https://linkedin.com/in/yasmin-bevilaqua/)                                 |
 
 ---
 
