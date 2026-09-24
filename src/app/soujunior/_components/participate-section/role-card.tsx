@@ -31,17 +31,12 @@ export function RoleCard({ role, index }: RoleCardProps) {
   return (
     <article className={`${styles.card} ${variantClass}`}>
       <div className={styles.top}>
-        <span className={styles.num}>{role.num} / 04</span>
         <span className={styles.icon} aria-hidden="true">
           <Icon className={styles.iconSvg} />
         </span>
       </div>
       <h3 className={styles.title}>{role.title}</h3>
       <p className={styles.desc}>{role.description}</p>
-      <span className={styles.tag}>
-        <span className={styles.tagDot} aria-hidden="true" />
-        {role.tag}
-      </span>
     </article>
   );
 }

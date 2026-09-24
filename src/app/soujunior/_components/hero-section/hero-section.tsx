@@ -46,7 +46,7 @@ export function HeroSection() {
           <div className={styles.heroSide}>
             <div className={styles.heroPhoto}>
               <Image
-                src="/juniormascote.png"
+                src="/juniormascote.webp"
                 alt="Mascote SouJunior"
                 fill
                 priority

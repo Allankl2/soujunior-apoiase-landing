@@ -27,7 +27,7 @@ export const ABOUT: AboutData = {
   label: "Sobre nós",
   title: ["Nascemos da inquietação", "de quem viu a barreira de perto."],
   image: {
-    src: "/images/about/team.jpg",
+    src: "/images/about/team.webp",
     alt: "Comunidade SouJunior em atividade",
     tag: "✦ nossa gente",
     caption: "Fig. 02 — Times voluntários",
