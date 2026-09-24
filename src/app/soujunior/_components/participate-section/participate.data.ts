@@ -8,7 +8,7 @@ export type Role = {
 };
 
 // TODO: trocar quando o link definitivo do formulário for definido
-export const PARTICIPATE_FORM_URL = "https://forms.gle/seu-formulario-aqui";
+export const PARTICIPATE_FORM_URL = "https://stars.soujunior.tech/";
 
 export const ROLES: Role[] = [
   {
