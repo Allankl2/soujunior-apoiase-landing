@@ -2,7 +2,7 @@
 
 Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores via [Apoia.se](https://apoia.se/), apresentando a missão da comunidade, seu impacto social e chamadas para ação que direcionam o visitante à doação.
 
-**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing
+**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing \
 **Deploy:** https://soujunior-apoiase-landing.vercel.app/
 
 ---
