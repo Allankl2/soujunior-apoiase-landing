@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site-config";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: `${SITE.url}/soujunior`,
+      url: SITE.url,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
