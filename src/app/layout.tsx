@@ -9,6 +9,7 @@ import {
 import { SITE } from "@/lib/site-config";
 
 import "./globals.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const funnelDisplay = Funnel_Display({
   variable: "--display",
@@ -130,6 +131,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>{children}</body>
+      <GoogleTagManager gtmId="GTM-PPZ2SMHN" />
     </html>
   );
 }
