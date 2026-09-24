@@ -64,15 +64,8 @@ A página deve comunicar o propósito da iniciativa rapidamente, gerar confianç
 
 ## Pré-requisitos
 
-- Node.js `20.9.0` ou superior (série `20.x`)
+- Node.js `24.0.0` ou superior (série `24.x`)
 - npm `10` ou superior
-
-As versões esperadas estão declaradas no `package.json` (campo `engines`) e no `.nvmrc`. Com [nvm](https://github.com/nvm-sh/nvm):
-
-```bash
-nvm install
-nvm use
-```
 
 Confirme as versões instaladas:
 
