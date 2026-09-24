@@ -2,7 +2,7 @@
 
 Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores via [Apoia.se](https://apoia.se/), apresentando a missão da comunidade, seu impacto social e chamadas para ação que direcionam o visitante à doação.
 
-**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing
+**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing \
 **Deploy:** https://soujunior-apoiase-landing.vercel.app/
 
 ---
@@ -10,6 +10,7 @@ Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores v
 ## 📋 Sumário
 
 - [Sobre o projeto](#sobre-o-projeto)
+- [Vídeo do projeto](#vídeo-do-projeto)
 - [Escopo funcional](#escopo-funcional)
 - [Stack tecnológica](#stack-tecnológica)
 - [Pré-requisitos](#pré-requisitos)
@@ -35,6 +36,12 @@ O objetivo da landing page é:
 - construir uma narrativa clara de conversão de visitante em apoiador;
 - direcionar os usuários para a página oficial da campanha no Apoia.se;
 - servir de base para uma página responsiva e pronta para pré-lançamento.
+
+## Vídeo do projeto
+
+Vídeo de apresentação da iniciativa SouJunior Apoia.se, com uma visão geral do projeto e de sua proposta de impacto:
+
+[Assistir ao vídeo no YouTube](https://www.youtube.com/watch?v=busH8_XXO9c)
 
 ---
 
@@ -64,42 +71,42 @@ A página deve comunicar o propósito da iniciativa rapidamente, gerar confianç
 
 ## Pré-requisitos
 
-- Node.js `24.21.0` ou superior (série `24.x`)
-- npm `11.19.0` ou superior
-
-Confirme as versões instaladas:
-
-```bash
-node --version
-npm --version
-```
+- [Sobre o projeto](#sobre-o-projeto)
+- [Vídeo do projeto](#vídeo-do-projeto)
+- [Escopo funcional](#escopo-funcional)
+- [Stack tecnológica](#stack-tecnológica)
+- [Pré-requisitos](#pré-requisitos)
+- [Como rodar o projeto](#como-rodar-o-projeto)
+- [Scripts disponíveis](#scripts-disponíveis)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Padrões de código](#padrões-de-código)
+- [Boas práticas](#boas-práticas)
+- [Testes e QA](#testes-e-qa)
+- [Contribuição](#contribuição)
+- [Atenção — Next.js 16](#atenção--nextjs-16)
+- [Equipe](#equipe)
+- [Licença](#licença)
 
 ---
 
-## Como rodar o projeto
+## Sobre o projeto
 
-**1. Clonar o repositório**
+O objetivo da landing page é:
 
-```bash
-git clone https://github.com/inovacao-squad/soujunior-apoiase-landing.git
-cd soujunior-apoiase-landing
-```
+- divulgar o programa e a missão da SouJunior;
+- apresentar o impacto gerado pelas doações;
+- construir uma narrativa clara de conversão de visitante em apoiador;
+- direcionar os usuários para a página oficial da campanha no Apoia.se;
+- servir de base para uma página responsiva e pronta para pré-lançamento.
 
-**2. Instalar dependências**
+## Vídeo do projeto
 
-```bash
-npm install
-```
+- npm `11.19.0` ou superior
 
-**3. Variáveis de ambiente**
-
-O projeto não utiliza variáveis de ambiente no momento. Caso novas integrações sejam adicionadas, documentar aqui nome e finalidade de cada variável, sem incluir valores sensíveis no repositório.
-
-**4. Iniciar o modo de desenvolvimento**
-
-```bash
+Confirme as versões instaladas:
 npm run dev
-```
+
+````
 
 Acesse [http://localhost:3000](http://localhost:3000). Para encerrar, `Ctrl+C`.
 
@@ -108,7 +115,7 @@ Acesse [http://localhost:3000](http://localhost:3000). Para encerrar, `Ctrl+C`.
 ```bash
 npm run lint
 npm run format:check
-```
+````
 
 **6. Build de produção**
 
@@ -242,10 +249,6 @@ npm run lint
 Este projeto possui integração com o **Google Tag Manager (GTM)** para gerenciamento centralizado de tags, eventos e analytics.
 ---
 
-## Testes e QA
-
-Planejamento, execução manual e automação de regressão da landing page.
-
 ## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
 
 **Estrutura de QA:**
@@ -268,6 +271,10 @@ Validação automatizada disponível:
 ```bash
 npm run lint
 ```
+
+## 📊 Google Tag Manager
+
+Este projeto possui integração com o **Google Tag Manager (GTM)** para gerenciamento centralizado de tags, eventos e analytics.
 
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
