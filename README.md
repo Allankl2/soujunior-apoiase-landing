@@ -8,6 +8,12 @@ Este projeto tem como objetivo criar uma página de apresentação para divulgar
 
 A estrutura atual foi iniciada com Next.js e utiliza o App Router do framework para servir a página principal e os estilos da interface.
 
+## Vídeo do projeto
+
+Vídeo de apresentação da iniciativa SouJunior Apoia.se, com uma visão geral do projeto e de sua proposta de impacto:
+
+[Assistir ao vídeo no YouTube](https://www.youtube.com/watch?v=busH8_XXO9c)
+
 ## Objetivo do projeto
 
 - divulgar o programa e a missão da SouJunior;
