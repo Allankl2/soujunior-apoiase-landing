@@ -238,10 +238,6 @@ npm run lint
 
 ---
 
-## Testes e QA
-
-Planejamento, execução manual e automação de regressão da landing page.
-
 ## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
 
 **Estrutura de QA:**
@@ -264,6 +260,11 @@ Validação automatizada disponível:
 ```bash
 npm run lint
 ```
+
+## 📊 Google Tag Manager
+
+Este projeto possui integração com o **Google Tag Manager (GTM)** para gerenciamento centralizado de tags, eventos e analytics.
+
 
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
