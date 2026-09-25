@@ -5,11 +5,12 @@ import {
   Funnel_Sans,
   JetBrains_Mono,
 } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
+import { CookieConsent } from "@/components/ui/cookie-consent/cookie-consent";
 import { SITE } from "@/lib/site-config";
 
 import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
 
 const funnelDisplay = Funnel_Display({
   variable: "--display",
@@ -130,7 +131,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <CookieConsent />
+      </body>
       <GoogleTagManager gtmId="GTM-PPZ2SMHN" />
     </html>
   );
