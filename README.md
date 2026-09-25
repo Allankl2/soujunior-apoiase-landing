@@ -2,8 +2,7 @@
 
 Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores via [Apoia.se](https://apoia.se/), apresentando a missão da comunidade, seu impacto social e chamadas para ação que direcionam o visitante à doação.
 
-**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing
-
+**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing \
 **Deploy:** https://soujunior-apoiase-landing.vercel.app/
 
 ---
@@ -38,6 +37,12 @@ O objetivo da landing page é:
 - direcionar os usuários para a página oficial da campanha no Apoia.se;
 - servir de base para uma página responsiva e pronta para pré-lançamento.
 
+**Métrica de sucesso:** taxa de conversão de visitante em doador. Acessos e visualizações são métricas auxiliares, não substituem a conversão real.
+
+> A meta numérica de novos doadores/mês será definida com o time responsável antes do lançamento.
+
+---
+
 ## Vídeo do projeto
 
 Vídeo de apresentação da iniciativa SouJunior Apoia.se, com uma visão geral do projeto e de sua proposta de impacto:
@@ -56,6 +61,18 @@ A página deve comunicar o propósito da iniciativa rapidamente, gerar confianç
 4. **Prova social** — números, depoimentos e parceiros;
 5. **Uso da doação** — explicação tangível de onde o dinheiro vai;
 6. **Rodapé institucional** — CNPJ, contatos e redes sociais.
+
+O CTA principal aparece no hero e se repete ao longo da página. Para visitantes que ainda não estão prontos para doar, há um CTA secundário (ex.: **"Conhecer o programa"** ou **"Receber novidades"**).
+
+**Critérios de aceite:**
+
+- o visitante entende o propósito da iniciativa em até 5 segundos no hero;
+- o CTA de doação é visível sem exigir rolagem completa;
+- o redirecionamento para a página da SouJunior no Apoia.se funciona;
+- carregamento abaixo de 3 segundos em conexão 4G;
+- tracking de conversão ativo e testado antes do lançamento.
+
+---
 
 ## Stack tecnológica
 
@@ -110,7 +127,7 @@ npm install
 
 O projeto não utiliza variáveis de ambiente no momento. Caso novas integrações sejam adicionadas, documentar aqui nome e finalidade de cada variável, sem incluir valores sensíveis no repositório.
 
-**4. Iniciar o modo de desenvolvimento**
+**4. Ambiente de desenvolvimento**
 
 ```bash
 npm run dev
@@ -228,6 +245,26 @@ export function HeroSection() {
 
 Evite nomes como `HeroSection.tsx`, `hero_section.tsx` ou `heroSection.tsx`.
 
+### Imports
+
+Ordem: (1) módulos nativos → (2) bibliotecas externas → (3) imports internos com `@/` → (4) imports relativos → (5) estilos.
+
+```tsx
+import { useState } from "react";
+import Image from "next/image";
+
+import { Header } from "@/app/_components/header/header";
+import { formatCurrency } from "@/lib/format-currency";
+
+import styles from "./page.module.css";
+```
+
+Sempre use o alias `@/` em vez de caminhos relativos longos. Configurado em `tsconfig.json`:
+
+```json
+"paths": { "@/*": ["./src/*"] }
+```
+
 ### Estilização
 
 **CSS Modules**: cada componente tem seu `*.module.css` ao lado; classes em `camelCase` (`.header`, `.navigationItem`); `globals.css` contém apenas reset, variáveis e `body`.
@@ -253,7 +290,25 @@ npm run lint
 
 ---
 
-## Testes e QA [ATUALIZAR PÓS-DESENVOLVIMENTO]
+## Testes e QA
+
+Planejamento, execução manual e automação de regressão da landing page.
+
+**Cobertura:**
+
+- responsividade e UX/UI (mobile-first);
+- regras de negócio e CTAs;
+- acessibilidade (WCAG) e performance em 4G;
+- automação BDD com Robot Framework + SeleniumLibrary.
+
+**Cenários automatizados (exemplos):**
+
+| ID      | Objetivo                                                                           | Tags               |
+| ------- | ---------------------------------------------------------------------------------- | ------------------ |
+| `TC-01` | Exibição _above the fold_ no mobile (`414x896`): título e CTA visíveis sem rolagem | `mobile`, `ux`     |
+| `TC-04` | Redirecionamento do CTA para a página de campanha no Apoia.se, em nova aba         | `funcional`, `cta` |
+
+**Ferramentas:** Chrome DevTools (emulação mobile/rede 4G) · Google Lighthouse (acessibilidade e performance) · Python 3.x + Robot Framework + SeleniumLibrary · Google Chrome / ChromeDriver.
 
 **Estrutura de QA:**
 
@@ -275,6 +330,10 @@ Validação automatizada disponível:
 ```bash
 npm run lint
 ```
+
+> Não existe meta de cobertura automatizada definida para o projeto. Após a execução dos testes, atualizar esta seção com o status dos cenários manuais e os resultados de acessibilidade, performance e conversão.
+
+---
 
 ## 📊 Google Tag Manager
 
@@ -307,13 +366,13 @@ Squad de Inovação — Hackathon SouJunior.
 | Nome             | Papel          | Nível  | LinkedIn                                                                                                      |
 | ---------------- | -------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
 | Allan Fortes     | Dev            | Mentor | [linkedin.com/in/allan-fortes-barbosa-b40520211](https://www.linkedin.com/in/allan-fortes-barbosa-b40520211/) |
-| Gabriel Barba    | Dev            | Júnior | [linkedin.com/in/gabriel--barba](https://linkedin.com/in/gabriel--barba/)                                     |
-| Simone Blasse    | QA             | Júnior | [linkedin.com/in/simoneblasse](https://linkedin.com/in/simoneblasse)                                          |
-| Rodrigo Marques  | PO/PM          | Júnior | [linkedin.com/in/rodrigo-marques7](https://linkedin.com/in/rodrigo-marques7/)                                 |
-| Dênis Santos     | Dev            | Júnior | [linkedin.com/in/denisilva-s](https://linkedin.com/in/denisilva-s/)                                           |
+| Gabriel Barba    | Dev            | Júnior | [linkedin.com/in/gabriel--barba](https://www.linkedin.com/in/gabriel--barba/)                                 |
+| Simone Blasse    | QA             | Júnior | [linkedin.com/in/simoneblasse](https://www.linkedin.com/in/simoneblasse)                                      |
+| Rodrigo Marques  | PO/PM          | Júnior | [linkedin.com/in/rodrigo-marques7](https://www.linkedin.com/in/rodrigo-marques7/)                             |
+| Dênis Santos     | Dev            | Júnior | [linkedin.com/in/denisilva-s](https://www.linkedin.com/in/denisilva-s/)                                       |
 | Michael Ribeiro  | Dev            | Júnior | [linkedin.com/in/michael-ribeiro-br](https://linkedin.com/in/michael-ribeiro-br/)                             |
-| Simara Santos    | Dev            | Júnior | [linkedin.com/in/simara-santos-silva-bb5732247](https://linkedin.com/in/simara-santos-silva-bb5732247/)       |
-| Yasmin Beviláqua | UX/UI Designer | Júnior | [linkedin.com/in/yasmin-bevilaqua](https://linkedin.com/in/yasmin-bevilaqua/)                                 |
+| Simara Santos    | Dev            | Júnior | [linkedin.com/in/simara-santos-silva-bb5732247](https://www.linkedin.com/in/simara-santos-silva-bb5732247/)   |
+| Yasmin Beviláqua | UX/UI Designer | Júnior | [linkedin.com/in/yasmin-bevilaqua](https://www.linkedin.com/in/yasmin-bevilaqua/)                             |
 
 ---
 
