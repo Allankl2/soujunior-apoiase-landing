@@ -2,7 +2,8 @@
 
 Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores via [Apoia.se](https://apoia.se/), apresentando a missão da comunidade, seu impacto social e chamadas para ação que direcionam o visitante à doação.
 
-**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing \
+**Repositório:** https://github.com/inovacao-squad/soujunior-apoiase-landing
+
 **Deploy:** https://soujunior-apoiase-landing.vercel.app/
 
 ---
@@ -71,42 +72,49 @@ A página deve comunicar o propósito da iniciativa rapidamente, gerar confianç
 
 ## Pré-requisitos
 
-- [Sobre o projeto](#sobre-o-projeto)
-- [Vídeo do projeto](#vídeo-do-projeto)
-- [Escopo funcional](#escopo-funcional)
-- [Stack tecnológica](#stack-tecnológica)
-- [Pré-requisitos](#pré-requisitos)
-- [Como rodar o projeto](#como-rodar-o-projeto)
-- [Scripts disponíveis](#scripts-disponíveis)
-- [Estrutura do projeto](#estrutura-do-projeto)
-- [Padrões de código](#padrões-de-código)
-- [Boas práticas](#boas-práticas)
-- [Testes e QA](#testes-e-qa)
-- [Contribuição](#contribuição)
-- [Atenção — Next.js 16](#atenção--nextjs-16)
-- [Equipe](#equipe)
-- [Licença](#licença)
+- Node.js `24.0.0` ou superior (série `24.x`)
+- npm `11.19.0` ou superior
+
+As versões esperadas estão declaradas no `package.json` (campo `engines`) e no `.nvmrc`. Com [nvm](https://github.com/nvm-sh/nvm):
+
+```bash
+nvm install
+nvm use
+```
+
+Confirme as versões instaladas:
+
+```bash
+node --version
+npm --version
+```
 
 ---
 
-## Sobre o projeto
+## Como rodar o projeto
 
-O objetivo da landing page é:
+**1. Clonar o repositório**
 
-- divulgar o programa e a missão da SouJunior;
-- apresentar o impacto gerado pelas doações;
-- construir uma narrativa clara de conversão de visitante em apoiador;
-- direcionar os usuários para a página oficial da campanha no Apoia.se;
-- servir de base para uma página responsiva e pronta para pré-lançamento.
+```bash
+git clone https://github.com/inovacao-squad/soujunior-apoiase-landing.git
+cd soujunior-apoiase-landing
+```
 
-## Vídeo do projeto
+**2. Instalar dependências**
 
-- npm `11.19.0` ou superior
+```bash
+npm install
+```
 
-Confirme as versões instaladas:
+**3. Variáveis de ambiente**
+
+O projeto não utiliza variáveis de ambiente no momento. Caso novas integrações sejam adicionadas, documentar aqui nome e finalidade de cada variável, sem incluir valores sensíveis no repositório.
+
+**4. Iniciar o modo de desenvolvimento**
+
+```bash
 npm run dev
-
-````
+```
 
 Acesse [http://localhost:3000](http://localhost:3000). Para encerrar, `Ctrl+C`.
 
@@ -115,7 +123,7 @@ Acesse [http://localhost:3000](http://localhost:3000). Para encerrar, `Ctrl+C`.
 ```bash
 npm run lint
 npm run format:check
-````
+```
 
 **6. Build de produção**
 
@@ -272,6 +280,8 @@ npm run lint
 
 Este projeto possui integração com o **Google Tag Manager (GTM)** para gerenciamento centralizado de tags, eventos e analytics.
 
+---
+
 # 🧪 Testes de Garantia de Qualidade (QA) — Landing Page SouJunior APOIA.se
 
 Este repositório contém o planejamento, a documentação, a execução manual e a **automação de testes de regressão** para a **Landing Page do SouJunior APOIA.se**.
@@ -287,16 +297,6 @@ O objetivo principal é garantir a qualidade da experiência do usuário, a resp
 3. Use [Conventional Commits](https://www.conventionalcommits.org/) (ex.: `feat: adiciona secao de impacto`, `docs: atualiza instrucoes`).
 4. Execute `npm run lint` e `npm run format:check` antes de abrir o PR.
 5. Abra um pull request descrevendo o problema, a solução e os testes realizados.
-
----
-
-## Atenção — Next.js 16
-
-- `params`, `searchParams`, `cookies()` e `headers()` agora são **assíncronos** — sempre usar `await`;
-- `middleware.ts` foi **depreciado** em favor de `proxy.ts`;
-- rotas paralelas exigem `default.tsx` explícito.
-
-Não é necessário migrar nada agora — o time só precisa estar ciente dessas mudanças ao escrever código novo.
 
 ---
 
