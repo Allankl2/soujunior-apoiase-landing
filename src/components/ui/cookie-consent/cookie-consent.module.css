@@ -1,53 +1,37 @@
-.overlay {
+.banner {
   position: fixed;
+  bottom: 24px;
+  right: 24px;
   z-index: 9999;
-  inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  font-family: inherit;
-}
-
-.backdrop {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: rgba(10, 20, 40, 0.42);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-.modal {
-  display: flex;
-  width: min(100%, 680px);
-  gap: 24px;
-  padding: 32px;
+  width: min(calc(100vw - 32px), 400px);
+  gap: 16px;
+  padding: 20px;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 20px;
   background: var(--paper);
   box-shadow:
-    0 24px 70px rgba(10, 20, 40, 0.2),
-    0 8px 24px rgba(10, 20, 40, 0.1);
-  animation: modalEnter 0.3s ease-out;
+    0 20px 50px rgba(10, 20, 40, 0.18),
+    0 6px 18px rgba(10, 20, 40, 0.08);
+  animation: bannerEnter 0.4s var(--ease-bounce);
 }
 
 .icon {
   display: flex;
-  flex: 0 0 52px;
+  flex: 0 0 40px;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   color: #ffffff;
   background: var(--blue);
-  box-shadow: 0 8px 20px rgba(27, 59, 255, 0.22);
+  box-shadow: 0 6px 16px rgba(27, 59, 255, 0.24);
 }
 
 .iconSvg {
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
 }
 
 .content {
@@ -58,52 +42,51 @@
 }
 
 .eyebrow {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--blue);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  line-height: 1.3;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .title {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--ink);
-  font-size: clamp(24px, 3vw, 30px);
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
 .description {
-  max-width: 560px;
   margin: 0;
   color: var(--ink-2);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .actions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 12px;
-  margin-top: 24px;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .button {
   display: inline-flex;
-  min-height: 48px;
+  min-height: 38px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0 20px;
+  gap: 8px;
+  padding: 0 16px;
   border: 1px solid transparent;
   border-radius: 999px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
@@ -115,28 +98,28 @@
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .button:focus-visible {
   outline: 3px solid rgba(27, 59, 255, 0.3);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .buttonPrimary {
   color: #ffffff;
   background: var(--blue);
-  box-shadow: 0 8px 18px rgba(27, 59, 255, 0.24);
+  box-shadow: 0 6px 14px rgba(27, 59, 255, 0.24);
 }
 
 .buttonPrimary:hover {
   background: var(--blue-hover);
-  box-shadow: 0 10px 24px rgba(27, 59, 255, 0.32);
+  box-shadow: 0 8px 18px rgba(27, 59, 255, 0.32);
 }
 
 .buttonSecondary {
   color: var(--ink);
-  border-color: var(--line-3);
+  border-color: var(--line-2);
   background: transparent;
 }
 
@@ -146,7 +129,7 @@
 }
 
 .buttonArrow {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 0;
   transition: transform 0.2s ease;
@@ -156,7 +139,7 @@
   transform: translateX(3px);
 }
 
-@keyframes modalEnter {
+@keyframes bannerEnter {
   from {
     opacity: 0;
     transform: translateY(16px) scale(0.98);
@@ -169,71 +152,50 @@
 }
 
 @media (max-width: 640px) {
-  .overlay {
-    align-items: flex-end;
+  .banner {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    width: auto;
     padding: 16px;
-  }
-
-  .modal {
-    width: 100%;
-    flex-direction: column;
-    gap: 18px;
-    padding: 24px;
-    border-radius: 22px;
+    gap: 12px;
+    border-radius: 16px;
   }
 
   .icon {
-    flex-basis: 46px;
-    width: 46px;
-    height: 46px;
-    border-radius: 14px;
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
   }
 
   .iconSvg {
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
   }
 
   .title {
-    font-size: 25px;
+    font-size: 16px;
   }
 
   .description {
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 12.5px;
+    line-height: 1.45;
   }
 
   .actions {
-    flex-direction: column-reverse;
-    align-items: stretch;
-    margin-top: 20px;
+    margin-top: 14px;
   }
 
   .button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 380px) {
-  .overlay {
-    padding: 10px;
-  }
-
-  .modal {
-    padding: 20px;
-  }
-
-  .title {
-    font-size: 23px;
-  }
-
-  .description {
-    font-size: 13px;
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 12.5px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .modal,
+  .banner,
   .button,
   .buttonArrow {
     animation: none;
