@@ -21,7 +21,6 @@ Landing page desenvolvida no Hackathon SouJunior para captação de apoiadores v
 - [Boas práticas](#boas-práticas)
 - [Testes e QA](#testes-e-qa)
 - [Contribuição](#contribuição)
-- [Atenção — Next.js 16](#atenção--nextjs-16)
 - [Equipe](#equipe)
 - [Licença](#licença)
 
