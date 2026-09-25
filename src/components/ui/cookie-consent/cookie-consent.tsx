@@ -8,16 +8,42 @@ const COOKIE_CONSENT_KEY = "soujunior-cookie-consent";
 
 type CookieConsentValue = "accepted" | "rejected";
 
+// Isso é o pedaço que faltava: sem isso, o GTM nunca fica sabendo
+// da escolha do usuário e o analytics_storage continua "denied" pra sempre.
+const updateConsentMode = (value: CookieConsentValue): void => {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push([
+    "consent",
+    "update",
+    {
+      ad_storage: value === "accepted" ? "granted" : "denied",
+      analytics_storage: value === "accepted" ? "granted" : "denied",
+      ad_user_data: value === "accepted" ? "granted" : "denied",
+      ad_personalization: value === "accepted" ? "granted" : "denied",
+    },
+  ]);
+};
+
 const saveConsent = (value: CookieConsentValue): void => {
   localStorage.setItem(COOKIE_CONSENT_KEY, value);
+  updateConsentMode(value);
 };
 
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const storedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (storedConsent) return;
+    const storedConsent = localStorage.getItem(
+      COOKIE_CONSENT_KEY,
+    ) as CookieConsentValue | null;
+
+    // Visitante que já tinha decidido antes: reaplica o consentimento
+    // dele nesse carregamento de página (o script default sempre nega
+    // primeiro, então isso é o que "libera" de novo).
+    if (storedConsent) {
+      updateConsentMode(storedConsent);
+      return;
+    }
 
     const id = setTimeout(() => setIsVisible(true), 0);
     return () => clearTimeout(id);

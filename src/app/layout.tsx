@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import {
   Caveat,
   Funnel_Display,
@@ -124,6 +125,18 @@ export default function RootLayout({
       className={`${funnelDisplay.variable} ${funnelSans.variable} ${jetBrainsMono.variable} ${caveat.variable}`}
     >
       <head>
+        <Script id="consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(['consent', 'default', {
+              ad_storage: 'denied',
+              analytics_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            }]);
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
